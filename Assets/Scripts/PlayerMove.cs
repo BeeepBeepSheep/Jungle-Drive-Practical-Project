@@ -6,19 +6,20 @@ public class PlayerMove : MonoBehaviour
 {
     public float currantSpeed = 10f;
     public Rigidbody rb;
-    float steering;
-    public float steeringSpeed = 3f;
+    float steeringInput;
 
-    void Start()
-    {
-        
-    }
+    public float maxSteer = 25f;
+    public float minSteer = -25f;
+
+    public GameObject car;
+
+    public float steeringSpeed = 3f;
 
     void Update()
     {
-        rb.velocity = transform.forward * (currantSpeed);
+        rb.velocity = car.transform.forward * (currantSpeed);
 
-        steering += Input.GetAxis("Mouse X") * steeringSpeed;
-        transform.rotation = Quaternion.Euler(transform.rotation.y, steering, 0f);
+        steeringInput += Input.GetAxis("Mouse X") * steeringSpeed;
+        car.transform.rotation = Quaternion.Euler(transform.rotation.y, steeringInput, 0f);
     }
 }
