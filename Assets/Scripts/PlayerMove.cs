@@ -10,7 +10,8 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody rb;
     float horizontalInput;
 
-    public GameObject car;
+    public Transform car;
+    public Transform carPosition;
 
     public Animator carAnim;
 
@@ -43,6 +44,9 @@ public class PlayerMove : MonoBehaviour
         {
             currantHorizontalSpeed = baseHorizontalSpeed;
         }
+
+        //car height
+        car.position = new Vector3(carPosition.position.x, car.position.y, carPosition.position.z);
     }
     void InputManagment()
     {
