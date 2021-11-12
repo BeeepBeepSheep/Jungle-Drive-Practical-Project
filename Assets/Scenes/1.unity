@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bcae2556aac0e429b7b7a6988d7f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 500
+  threshold: 300
   levelGenirator: {fileID: 423688868}
   tileHolder: {fileID: 828696131}
 --- !u!1 &1446477469
