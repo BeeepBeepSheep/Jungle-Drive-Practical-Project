@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     public Animator carAnim;
 
     public int turnStateInt = 1;
+
     //if 0 left, if 1 forward, if 2 right;
     void Start()
     {
