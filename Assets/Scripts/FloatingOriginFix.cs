@@ -35,8 +35,6 @@ public class FloatingOriginFix : MonoBehaviour
                 }
 
                 levelGenirator.nextSpawnPoint = tilesArray[tilesArray.Length - 1].transform.GetChild(0).transform.position; ;
-               
-                Debug.Log("recentering, origin delta");
             }
         }
     }

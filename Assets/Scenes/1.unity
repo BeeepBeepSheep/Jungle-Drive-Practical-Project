@@ -154,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 118176518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c755c58f8dd6ad34c8bdd78530ce1574, type: 2}
+  m_Controller: {fileID: 9100000, guid: 86544aac5ccc0504f80217c81cbacf65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -248,14 +248,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118176518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.34, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 4}
   m_Children:
   - {fileID: 760010824}
   - {fileID: 325179782}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &325179781
 GameObject:
@@ -382,7 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTile: {fileID: 0}
-  lastTile: {fileID: 0}
   tiles:
   - {fileID: 7480154201649777826, guid: 1a153d64cae22224483f0a2a508f7835, type: 3}
   - {fileID: 7480154201649777826, guid: d1f862c0041614e46a5d10f2bd8a86d6, type: 3}
@@ -500,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028094791
 GameObject:
@@ -650,6 +649,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currantSpeed: 25
+  minSpeed: 25
+  maxSpeed: 35
+  speedState: 0
+  suspensionIsRaised: 0
+  carSuspendedPhysMat: {fileID: 13400000, guid: 47ac234c14c1dec4fb101f252687d1e8, type: 2}
   currantHorizontalSpeed: 25
   baseHorizontalSpeed: 25
   rb: {fileID: 1446477470}
@@ -671,7 +675,7 @@ Transform:
   - {fileID: 1028094792}
   - {fileID: 1605667576}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605667575
 GameObject:

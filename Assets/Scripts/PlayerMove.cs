@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float currantSpeed = 25f;
+    public float minSpeed = 25f;
+    public float maxSpeed = 35;
+    public int speedState;
+
+    public bool suspensionIsRaised;
+    public PhysicMaterial carSuspendedPhysMat;
+
     public float currantHorizontalSpeed = 25f;
     public float baseHorizontalSpeed = 25f;
-    public Rigidbody rb;
     float horizontalInput;
+    public Rigidbody rb;
 
     public Transform car;
     public Transform carPosition;
@@ -21,22 +28,27 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         currantHorizontalSpeed = baseHorizontalSpeed;
+        suspensionIsRaised = false;
+        speedState = 1;
     }
     void FixedUpdate()
     {
+        //move
         Vector3 forwardMove = transform.forward * currantSpeed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * currantHorizontalSpeed * Time.fixedDeltaTime;
-        
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
+
     }
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        carAnim.SetInteger("TurnStateInt", turnStateInt);
-        InputManagment();
+        //carAnim.SetInteger("TurnStateInt", turnStateInt);
+        carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
 
+        InputManagment();
         //fix horizontalm ove
+
         if (turnStateInt == 2)
         {
             currantHorizontalSpeed = 0;
@@ -46,7 +58,7 @@ public class PlayerMove : MonoBehaviour
             currantHorizontalSpeed = baseHorizontalSpeed;
         }
 
-        //car height
+        //car height physics
         car.position = new Vector3(carPosition.position.x, car.position.y, carPosition.position.z);
     }
     void InputManagment()
@@ -83,9 +95,40 @@ public class PlayerMove : MonoBehaviour
                 turnStateInt = 2;
             }
         }
+
+        //suspension
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            SuspensionLogic();
+            SpeedManager();
+        }
+    }
+    void SpeedManager()
+    {
+        if(!suspensionIsRaised)
+        {
+            //fast
+            currantSpeed = maxSpeed;
+        }
+        else
+        {
+            //slow
+            currantSpeed = minSpeed;
+        }
+    }
+    void SuspensionLogic()
+    {
+        if(!suspensionIsRaised)
+        {
+            //rais
+            suspensionIsRaised = true;
+            car.GetComponent<BoxCollider>().material = carSuspendedPhysMat;
+        }
+        else
+        {
+            //lower
+            suspensionIsRaised = false;
+            car.GetComponent<BoxCollider>().material = null;
+        }
     }
 }
-//mouse steer
-
-//steeringInput += Input.GetAxis("Mouse X") * steeringSpeed;
-//car.transform.rotation = Quaternion.Euler(transform.rotation.y, steeringInput, 0f);
