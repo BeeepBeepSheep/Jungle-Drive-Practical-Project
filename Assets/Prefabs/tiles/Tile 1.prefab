@@ -820,6 +820,7 @@ MonoBehaviour:
   obsticles:
   - {fileID: 6745161572553473653, guid: ea827ab656d9af44abf5dbf4040b42aa, type: 3}
   - {fileID: 6745161572553473653, guid: d6f1836e2f8ec0f468e9ecb35d544faa, type: 3}
+  - {fileID: 6745161572553473653, guid: b8f8002084e22e14f9a5956ce0253a4a, type: 3}
   obsticleToSpawn: {fileID: 6745161572553473653, guid: d6f1836e2f8ec0f468e9ecb35d544faa, type: 3}
   obsticleIndex: 0
   spawnPoints:
@@ -849,6 +850,8 @@ MonoBehaviour:
   - {fileID: 9130488627597680618}
   TileHolder: {fileID: 0}
   player: {fileID: 0}
+  minObsticles: 2
+  maxObsticles: 10
 --- !u!1 &8122957823695423579
 GameObject:
   m_ObjectHideFlags: 0

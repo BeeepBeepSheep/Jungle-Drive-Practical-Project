@@ -28,12 +28,10 @@ public class FloatingOriginFix : MonoBehaviour
                 tileList.Add(child.gameObject);
                 tilesArray = tileList.ToArray();
 
-                Debug.Log("recentering, origin delta = ");
                 tilesArray[0].transform.position = tileHolder.transform.position;
-
-                for (int count = 1 /*= 0*/; count < tilesArray.Length; count++)
+                for (int placeInArray = 1; placeInArray < tilesArray.Length; placeInArray++)
                 {
-                    tilesArray[count].transform.position = tilesArray[count - 1].transform.GetChild(0).position;
+                    tilesArray[placeInArray].transform.position = tilesArray[placeInArray - 1].transform.GetChild(0).position;
                 }
 
                 levelGenirator.nextSpawnPoint = tilesArray[tilesArray.Length - 1].transform.GetChild(0).transform.position; ;

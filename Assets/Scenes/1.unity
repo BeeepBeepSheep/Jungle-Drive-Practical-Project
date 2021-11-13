@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 423688867}
   - component: {fileID: 423688868}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: TileSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -386,8 +386,10 @@ MonoBehaviour:
   tiles:
   - {fileID: 7480154201649777826, guid: 1a153d64cae22224483f0a2a508f7835, type: 3}
   - {fileID: 7480154201649777826, guid: d1f862c0041614e46a5d10f2bd8a86d6, type: 3}
-  startSpawnTileAmmount: 6
+  nextSpawnPoint: {x: 0, y: 0, z: 0}
+  startSpawnTileAmmount: 15
   totalTileAmmount: 0
+  canSpawnTile: 1
   player: {fileID: 1446477472}
 --- !u!1 &760010818
 GameObject:
@@ -596,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bcae2556aac0e429b7b7a6988d7f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 300
+  threshold: 500
   levelGenirator: {fileID: 423688868}
   tileHolder: {fileID: 828696131}
   tilesArray: []

@@ -5,7 +5,6 @@ using UnityEngine;
 public class GroundSpawner : MonoBehaviour
 {
     public GameObject nextTile;
-    public GameObject lastTile;
     public GameObject[] tiles;
 
     int index;
@@ -17,7 +16,6 @@ public class GroundSpawner : MonoBehaviour
     public int totalTileAmmount;
     GroundTile groundTileScript;
     public bool canSpawnTile = true;
-    //public int obsticleAmmount = 2;
 
     public Transform player;
 
@@ -35,7 +33,6 @@ public class GroundSpawner : MonoBehaviour
     }
     public void SpawnTile()
     {
-        lastTile = nextTile;
         index = Random.Range(0, tiles.Length);
         nextTile = tiles[index];
         totalTileAmmount++;
@@ -45,9 +42,5 @@ public class GroundSpawner : MonoBehaviour
         nextSpawnPoint = temp.transform.GetChild(0).transform.position;
 
         player.SetSiblingIndex(totalTileAmmount);
-
-        //obsticles
-        //groundTileScript = nextTile.GetComponent<GroundTile>();
-        //groundTileScript.SpawnObsticle();
     }
 }

@@ -9,19 +9,28 @@ public class GroundTile : MonoBehaviour
     public GameObject[] obsticles;
     public GameObject obsticleToSpawn;
     public int obsticleIndex;
+
     public Transform[] spawnPoints;
     public GameObject TileHolder;
     public GameObject player;
-    //public int minObsticles = 2;
+
+    int obsticlesToSpawnAmmount;
+    public int minObsticles = 2;
+    public int maxObsticles = 5;
+
     void Start()
     {
         groundSpawnerScript = GameObject.FindObjectOfType<GroundSpawner>();
-        //transform.parent = groundSpawnerScript.transform;
-        //SpawnObsticle(/*1*/);
+
         TileHolder = GameObject.FindGameObjectWithTag("TileHolder");
         transform.parent = TileHolder.transform;
         player = GameObject.FindGameObjectWithTag("Player");
+
+        obsticlesToSpawnAmmount = Random.Range(minObsticles, maxObsticles);
+
+        SpawnObsticle(obsticlesToSpawnAmmount);
     }
+
     void OnTriggerEnter(Collider col)
     {
         player.transform.parent = transform;
@@ -29,13 +38,19 @@ public class GroundTile : MonoBehaviour
     void OnTriggerExit(Collider collider)
     {
         groundSpawnerScript.SpawnTile();
-        Destroy(gameObject,1);
+        Destroy(gameObject, 1);
     }
 
-    //public void SpawnObsticle(/*int minObsticles*/)
-    //{
-    //    //obsticleIndex = Random.Range(0, spawnPoints.Length);
-    //    //obsticleToSpawn = obsticles[obsticleIndex];
-    //    Instantiate(obsticleToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, obsticleToSpawn.transform.rotation);
-    //}
+    void SpawnObsticle(int ammountToSpawn)
+    {
+        obsticleIndex = Random.Range(0, obsticles.Length);
+        obsticleToSpawn = obsticles[obsticleIndex];
+
+        for (int i = minObsticles; i < ammountToSpawn; i++)
+        {
+            GameObject myObsticle = Instantiate(obsticleToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, obsticleToSpawn.transform.rotation);
+
+            myObsticle.transform.parent = transform;
+        }
+    }
 }
