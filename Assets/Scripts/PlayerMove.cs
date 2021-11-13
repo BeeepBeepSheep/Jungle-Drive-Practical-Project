@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float currantSpeed = 25f;
-    public float minSpeed = 25f;
+    public float minSpeed = 28f;
     public float maxSpeed = 35;
+    public float mudSpeed = 15;
+
     public int speedState;
 
     public bool suspensionIsRaised;
@@ -108,23 +110,11 @@ public class PlayerMove : MonoBehaviour
     {
         if(!suspensionIsRaised)
         {
-            //fast
-            currantSpeed = maxSpeed;
-            speedState = 1;
-
-            isFastCamAnim = true;
-            camAnim.SetBool("isFast", isFastCamAnim);
-
+            SpeedUp();
         }
         else
         {
-            //slow
-            currantSpeed = minSpeed;
-            speedState = 0;
-
-            isFastCamAnim = false;
-            camAnim.SetBool("isFast", isFastCamAnim);
-
+            SlowDown();
         }
     }
     void SuspensionLogic()
@@ -141,5 +131,21 @@ public class PlayerMove : MonoBehaviour
             suspensionIsRaised = false;
             car.GetComponent<BoxCollider>().material = null;
         }
+    }
+    public void SpeedUp()
+    {
+        currantSpeed = maxSpeed;
+        speedState = 1;
+
+        isFastCamAnim = true;
+        camAnim.SetBool("isFast", isFastCamAnim);
+    }
+    public void SlowDown()
+    {
+        currantSpeed = minSpeed;
+        speedState = 0;
+
+        isFastCamAnim = false;
+        camAnim.SetBool("isFast", isFastCamAnim);
     }
 }

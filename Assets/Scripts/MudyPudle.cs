@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class MudyPudle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject player;
+    public GameObject car;
+    PlayerMove playerMoveScript;
+
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        car = GameObject.FindGameObjectWithTag("Car");
+
+        playerMoveScript = player.GetComponent<PlayerMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider playerBox)
     {
-        
+        playerMoveScript.SlowDown();
+        if (!playerMoveScript.suspensionIsRaised)
+        {
+            playerMoveScript.currantSpeed = playerMoveScript.mudSpeed;
+        }
+    }
+
+    void OnTriggerExit(Collider playerBox2)
+    {
+        if(!playerMoveScript.suspensionIsRaised)
+        {
+            StartCoroutine(AllowSpeedUp());
+        }
+    }
+    IEnumerator AllowSpeedUp()
+    {
+        yield return new WaitForSeconds(.25f);
+        playerMoveScript.SpeedUp();
     }
 }

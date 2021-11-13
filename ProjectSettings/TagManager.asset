@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnvironmentTile
   - TileHolder
+  - Car
   layers:
   - Default
   - TransparentFX
