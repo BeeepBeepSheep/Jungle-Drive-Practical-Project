@@ -850,8 +850,8 @@ MonoBehaviour:
   - {fileID: 9130488627597680618}
   TileHolder: {fileID: 0}
   player: {fileID: 0}
-  minObsticles: 2
-  maxObsticles: 10
+  minObsticles: 5
+  maxObsticles: 20
 --- !u!1 &8122957823695423579
 GameObject:
   m_ObjectHideFlags: 0

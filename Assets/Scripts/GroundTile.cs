@@ -43,11 +43,11 @@ public class GroundTile : MonoBehaviour
 
     void SpawnObsticle(int ammountToSpawn)
     {
-        obsticleIndex = Random.Range(0, obsticles.Length);
-        obsticleToSpawn = obsticles[obsticleIndex];
 
         for (int i = minObsticles; i < ammountToSpawn; i++)
         {
+            obsticleIndex = Random.Range(0, obsticles.Length);
+            obsticleToSpawn = obsticles[obsticleIndex];
             GameObject myObsticle = Instantiate(obsticleToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, obsticleToSpawn.transform.rotation);
 
             myObsticle.transform.parent = transform;

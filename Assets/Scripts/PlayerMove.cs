@@ -20,6 +20,9 @@ public class PlayerMove : MonoBehaviour
     public Transform car;
     public Transform carPosition;
 
+    public Animator camAnim;
+    bool isFastCamAnim;
+
     public Animator carAnim;
 
     public int turnStateInt = 1;
@@ -28,8 +31,8 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         currantHorizontalSpeed = baseHorizontalSpeed;
-        suspensionIsRaised = false;
-        speedState = 1;
+        suspensionIsRaised = true;
+        speedState = 0;
     }
     void FixedUpdate()
     {
@@ -37,12 +40,10 @@ public class PlayerMove : MonoBehaviour
         Vector3 forwardMove = transform.forward * currantSpeed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * currantHorizontalSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
-
     }
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-
         //carAnim.SetInteger("TurnStateInt", turnStateInt);
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
 
@@ -109,11 +110,21 @@ public class PlayerMove : MonoBehaviour
         {
             //fast
             currantSpeed = maxSpeed;
+            speedState = 1;
+
+            isFastCamAnim = true;
+            camAnim.SetBool("isFast", isFastCamAnim);
+
         }
         else
         {
             //slow
             currantSpeed = minSpeed;
+            speedState = 0;
+
+            isFastCamAnim = false;
+            camAnim.SetBool("isFast", isFastCamAnim);
+
         }
     }
     void SuspensionLogic()
