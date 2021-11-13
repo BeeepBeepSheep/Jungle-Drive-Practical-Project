@@ -28,46 +28,18 @@ public class FloatingOriginFix : MonoBehaviour
                 tileList.Add(child.gameObject);
                 tilesArray = tileList.ToArray();
 
-                //player.SetSiblingIndex(tilesArray.Length);
-                //player.position = new Vector3(0, 0, 16);
                 Debug.Log("recentering, origin delta = ");
                 tilesArray[0].transform.position = tileHolder.transform.position;
 
-                for (int count = 1 /*= 0*/; count < tilesArray.Length ; count++)
+                for (int count = 1 /*= 0*/; count < tilesArray.Length; count++)
                 {
-                    if(count > 0)
-                    { 
-                    }
                     tilesArray[count].transform.position = tilesArray[count - 1].transform.GetChild(0).position;
                 }
 
-                //player.position = playerSpawn;
-
-                Vector3 originDelta = Vector3.zero + cameraPosition;
-                levelGenirator.UpdateSpawnOrigin(originDelta);
-                Debug.Log("recentering, origin delta = " + originDelta);
-
-                //foreach (GameObject singleTile in tilesArray)
-                //{
-                //    singleTile.transform.position -= new Vector3(0, 0, threshold);
-                //}
+                levelGenirator.nextSpawnPoint = tilesArray[tilesArray.Length - 1].transform.GetChild(0).transform.position; ;
+               
+                Debug.Log("recentering, origin delta");
             }
         }
-        
-
-        //{
-
-        //    for (int z = 0; z < SceneManager.sceneCount; z++)
-        //    {
-        //        foreach (GameObject myGameObject in SceneManager.GetSceneAt(z).GetRootGameObjects())
-        //        {
-        //            myGameObject.transform.position -= cameraPosition;
-        //        }
-        //    }
-
-        //    Vector3 originDelta = Vector3.zero - cameraPosition;
-        //    levelGenirator.UpdateSpawnOrigin(originDelta);
-        //    Debug.Log("recentering, origin delta = " + originDelta);
-        //}
     }
 }

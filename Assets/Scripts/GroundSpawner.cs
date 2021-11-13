@@ -11,11 +11,12 @@ public class GroundSpawner : MonoBehaviour
     int index;
     Vector3 spawnOrigin;
 
-    Vector3 nextSpawnPoint;
+    public Vector3 nextSpawnPoint;
     public int startSpawnTileAmmount = 25;
 
     public int totalTileAmmount;
     GroundTile groundTileScript;
+    public bool canSpawnTile = true;
     //public int obsticleAmmount = 2;
 
     public Transform player;
@@ -40,7 +41,7 @@ public class GroundSpawner : MonoBehaviour
         totalTileAmmount++;
 
         //spawntile
-        GameObject temp = Instantiate(nextTile, nextSpawnPoint /*+ spawnOrigin*/, Quaternion.identity);
+        GameObject temp = Instantiate(nextTile, nextSpawnPoint, Quaternion.identity);
         nextSpawnPoint = temp.transform.GetChild(0).transform.position;
 
         player.SetSiblingIndex(totalTileAmmount);
@@ -48,10 +49,5 @@ public class GroundSpawner : MonoBehaviour
         //obsticles
         //groundTileScript = nextTile.GetComponent<GroundTile>();
         //groundTileScript.SpawnObsticle();
-    }
-
-    public void UpdateSpawnOrigin(Vector3 originDelta)
-    {
-        spawnOrigin = spawnOrigin + originDelta;
     }
 }
