@@ -49,8 +49,8 @@ public class UIManager : MonoBehaviour
             i += .1f;
             yield return new WaitForSeconds(0.1f);
             SpeedIndicator_Circle.fillAmount -= i;
-            Debug.Log(i);
         }
+        CountDownRestet();
     }
     public void CountDownRestet()
     {

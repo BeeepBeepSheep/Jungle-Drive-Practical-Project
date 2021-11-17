@@ -184,6 +184,7 @@ public class PlayerMove : MonoBehaviour
     }
     public IEnumerator AllowSpeedUp()
     {
+        uiManagerScript.CountDownStart(speedUpDelayAfterMud);
         yield return new WaitForSeconds(speedUpDelayAfterMud);
         SetSpeedFast();
     }
@@ -206,11 +207,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (!exitMudRaisedFast)
         {
+            yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
+
             if (suspensionIsRaised)
             {
                 uiManagerScript.CountDownStart(slownessDelayAfetrMaxSpeed);
-                yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
-                uiManagerScript.CountDownRestet();
+                //uiManagerScript.CountDownRestet();
                 SetSpeedSlow();
             }
         }
