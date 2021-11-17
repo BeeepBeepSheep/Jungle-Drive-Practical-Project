@@ -20,7 +20,7 @@ public class MudyPudle : MonoBehaviour
     void OnTriggerEnter(Collider playerBox)
     {
         playerMoveScript.isInMud = true;
-
+        playerMoveScript.SpeedManager();
         if (playerMoveScript.speedState != 1)
         {
             playerMoveScript.exitMudRaisedFast = false;
@@ -30,8 +30,8 @@ public class MudyPudle : MonoBehaviour
     void OnTriggerExit(Collider playerBox2)
     {
         playerMoveScript.isInMud = false;
-
-        if(playerMoveScript.suspensionIsRaised && playerMoveScript.speedState ==1)
+        playerMoveScript.SpeedManager();
+        if (playerMoveScript.suspensionIsRaised && playerMoveScript.speedState ==1)
         {
             playerMoveScript.exitMudRaisedFast = true;
         }

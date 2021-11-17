@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float minSpeed = 28f;
     public float maxSpeed = 35;
     public float mudSpeed = 15;
-    public float slownessDelayAfetrMaxSpeed = 1.5f;
+    public float slownessDelayAfetrMaxSpeed = 1f;
     public float speedUpDelayAfterMud = 2f;
 
     public PhysicMaterial carSuspendedPhysMat;
@@ -31,9 +31,9 @@ public class PlayerMove : MonoBehaviour
     bool isFastCamAnim;
 
     public Animator carAnim;
-
     public int turnStateInt = 1;
 
+    public UIManager uiManagerScript;
     //if 0 left, if 1 forward, if 2 right;
     void Start()
     {
@@ -48,9 +48,11 @@ public class PlayerMove : MonoBehaviour
         Vector3 forwardMove = transform.forward * currantSpeed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * currantHorizontalSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
+
     }
     void Update()
     {
+
         horizontalInput = Input.GetAxis("Horizontal");
         //carAnim.SetInteger("TurnStateInt", turnStateInt);
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
@@ -70,7 +72,7 @@ public class PlayerMove : MonoBehaviour
         //car height physics
         car.position = new Vector3(carPosition.position.x, car.position.y, carPosition.position.z);
 
-        SpeedManager();
+        //SpeedManager();
     }
     void InputManagment()
     {
@@ -111,9 +113,10 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SuspensionLogic();
+            SpeedManager();
         }
     }
-    void SpeedManager()
+    public void SpeedManager()
     {
         if (!isInMud) // not in mud
         {
@@ -203,9 +206,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (!exitMudRaisedFast)
         {
-            yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
             if (suspensionIsRaised)
             {
+                uiManagerScript.CountDownStart(slownessDelayAfetrMaxSpeed);
+                yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
+                uiManagerScript.CountDownRestet();
                 SetSpeedSlow();
             }
         }
