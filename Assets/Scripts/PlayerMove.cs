@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public int speedState;
+    public bool suspensionIsRaised;
+    public bool isInMud;
+    public bool exitMudRaisedFast;
+    public bool canKeepMomentom;
+
     public float currantSpeed = 25f;
     public float minSpeed = 28f;
     public float maxSpeed = 35;
     public float mudSpeed = 15;
+    public float slownessDelayAfetrMaxSpeed = 1;
+    public float speedUpDelayAfterMud = .5f;
 
-    public int speedState;
-
-    public bool suspensionIsRaised;
     public PhysicMaterial carSuspendedPhysMat;
 
     public float currantHorizontalSpeed = 25f;
@@ -35,6 +40,7 @@ public class PlayerMove : MonoBehaviour
         currantHorizontalSpeed = baseHorizontalSpeed;
         suspensionIsRaised = true;
         speedState = 0;
+        car.GetComponent<BoxCollider>().material = carSuspendedPhysMat;
     }
     void FixedUpdate()
     {
@@ -50,7 +56,7 @@ public class PlayerMove : MonoBehaviour
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
 
         InputManagment();
-        //fix horizontalm ove
+        //fix horizontalm move
 
         if (turnStateInt == 2)
         {
@@ -63,6 +69,8 @@ public class PlayerMove : MonoBehaviour
 
         //car height physics
         car.position = new Vector3(carPosition.position.x, car.position.y, carPosition.position.z);
+
+        SpeedManager();
     }
     void InputManagment()
     {
@@ -100,26 +108,57 @@ public class PlayerMove : MonoBehaviour
         }
 
         //suspension
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SuspensionLogic();
-            SpeedManager();
         }
     }
     void SpeedManager()
     {
-        if(!suspensionIsRaised)
+        if (!isInMud) // not in mud
         {
-            SpeedUp();
+            if (!suspensionIsRaised) //not raised
+            {
+                StartCoroutine(AllowSpeedUp());
+            }
+            else // raised
+            {
+                if (!exitMudRaisedFast)
+                {
+                    StartCoroutine(SlowdownDelay());
+                }
+                else
+                {
+                    SetSpeedFast();
+                }
+            }
         }
-        else
+
+        if (isInMud)
         {
-            SlowDown();
+            if (!suspensionIsRaised) //not raised
+            {
+                if (speedState == 1)
+                {
+                    SetSpeedSlow();
+                }
+            }
+            else // raised
+            {
+                if (speedState == 1)
+                {
+                    SetSpeedFast();
+                }
+                if (speedState == 0)
+                {
+                    currantSpeed = minSpeed;
+                }
+            }
         }
     }
     void SuspensionLogic()
     {
-        if(!suspensionIsRaised)
+        if (!suspensionIsRaised)
         {
             //rais
             suspensionIsRaised = true;
@@ -130,22 +169,49 @@ public class PlayerMove : MonoBehaviour
             //lower
             suspensionIsRaised = false;
             car.GetComponent<BoxCollider>().material = null;
+
         }
     }
-    public void SpeedUp()
+    public void SetSpeedFast()
     {
         currantSpeed = maxSpeed;
         speedState = 1;
 
         isFastCamAnim = true;
         camAnim.SetBool("isFast", isFastCamAnim);
-    }
-    public void SlowDown()
-    {
-        currantSpeed = minSpeed;
-        speedState = 0;
 
+        exitMudRaisedFast = false;
+    }
+    public IEnumerator AllowSpeedUp()
+    {
+        yield return new WaitForSeconds(speedUpDelayAfterMud);
+        SetSpeedFast();
+    }
+    public void SetSpeedSlow()
+    {
+        if (isInMud && !suspensionIsRaised)
+        {
+            currantSpeed = mudSpeed;
+            speedState = -1;
+        }
+        else
+        {
+            currantSpeed = minSpeed;
+            speedState = 0;
+        }
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
+    }
+
+    public IEnumerator SlowdownDelay()
+    {
+        if (!exitMudRaisedFast)
+        {
+            yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
+            if (suspensionIsRaised)
+            {
+                SetSpeedSlow();
+            }
+        }
     }
 }

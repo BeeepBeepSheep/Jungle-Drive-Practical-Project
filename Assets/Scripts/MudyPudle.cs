@@ -8,6 +8,7 @@ public class MudyPudle : MonoBehaviour
     public GameObject car;
     PlayerMove playerMoveScript;
 
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -18,23 +19,25 @@ public class MudyPudle : MonoBehaviour
 
     void OnTriggerEnter(Collider playerBox)
     {
-        playerMoveScript.SlowDown();
-        if (!playerMoveScript.suspensionIsRaised)
+        playerMoveScript.isInMud = true;
+
+        if (playerMoveScript.speedState != 1)
         {
-            playerMoveScript.currantSpeed = playerMoveScript.mudSpeed;
+            playerMoveScript.exitMudRaisedFast = false;
         }
     }
 
     void OnTriggerExit(Collider playerBox2)
     {
-        if(!playerMoveScript.suspensionIsRaised)
+        playerMoveScript.isInMud = false;
+
+        if(playerMoveScript.suspensionIsRaised && playerMoveScript.speedState ==1)
         {
-            StartCoroutine(AllowSpeedUp());
+            playerMoveScript.exitMudRaisedFast = true;
         }
-    }
-    IEnumerator AllowSpeedUp()
-    {
-        yield return new WaitForSeconds(.25f);
-        playerMoveScript.SpeedUp();
+        if(playerMoveScript.speedState != 1)
+        {
+            playerMoveScript.exitMudRaisedFast = false;
+        }
     }
 }
