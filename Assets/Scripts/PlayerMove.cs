@@ -207,12 +207,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (!exitMudRaisedFast)
         {
+            uiManagerScript.CountDownStart(slownessDelayAfetrMaxSpeed);
+            // put slodown in ui script for better results
             yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
-
             if (suspensionIsRaised)
             {
-                uiManagerScript.CountDownStart(slownessDelayAfetrMaxSpeed);
-                //uiManagerScript.CountDownRestet();
+                //uiManagerScript.CountDownStart(slownessDelayAfetrMaxSpeed);
                 SetSpeedSlow();
             }
         }

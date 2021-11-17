@@ -46,8 +46,8 @@ public class UIManager : MonoBehaviour
     {
         for (float i = 0; i < timerAmount;)
         {
-            i += .1f;
-            yield return new WaitForSeconds(0.1f);
+            i += .05f;
+            yield return new WaitForSeconds(0.05f);
             SpeedIndicator_Circle.fillAmount -= i;
         }
         CountDownRestet();
