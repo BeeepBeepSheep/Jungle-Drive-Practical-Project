@@ -210,7 +210,6 @@ public class PlayerMove : MonoBehaviour
             {
                 uiManagerScript.CountDownStart(slownessDelayAfetrMaxSpeed);
                 yield return new WaitForSeconds(slownessDelayAfetrMaxSpeed);
-                uiManagerScript.CountDownRestet();
                 SetSpeedSlow();
             }
         }
