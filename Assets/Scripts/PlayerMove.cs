@@ -14,8 +14,8 @@ public class PlayerMove : MonoBehaviour
     public float minSpeed = 28f;
     public float maxSpeed = 35;
     public float mudSpeed = 15;
-    public float slownessDelayAfetrMaxSpeed = 1;
-    public float speedUpDelayAfterMud = .5f;
+    public float slownessDelayAfetrMaxSpeed = 1.5f;
+    public float speedUpDelayAfterMud = 2f;
 
     public PhysicMaterial carSuspendedPhysMat;
 
@@ -134,14 +134,11 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (isInMud)
+        if (isInMud) // in mud
         {
-            if (!suspensionIsRaised) //not raised
+            if (!suspensionIsRaised && speedState == 1) //not raised
             {
-                if (speedState == 1)
-                {
-                    SetSpeedSlow();
-                }
+                SetSpeedMud();
             }
             else // raised
             {
@@ -189,16 +186,15 @@ public class PlayerMove : MonoBehaviour
     }
     public void SetSpeedSlow()
     {
-        if (isInMud && !suspensionIsRaised)
-        {
-            currantSpeed = mudSpeed;
-            speedState = -1;
-        }
-        else
-        {
-            currantSpeed = minSpeed;
-            speedState = 0;
-        }
+        currantSpeed = minSpeed;
+        speedState = 0;
+        isFastCamAnim = false;
+        camAnim.SetBool("isFast", isFastCamAnim);
+    }
+    public void SetSpeedMud()
+    {
+        currantSpeed = mudSpeed;
+        speedState = -1;
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
     }
