@@ -30,7 +30,7 @@ public class CarManager2 : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class CarManager2 : MonoBehaviour
         frontRightWheel.Rotate(Vector3.left * Time.deltaTime * currantWheelTurnSpeed);
         frontLeftWheel.Rotate(Vector3.left * Time.deltaTime * currantWheelTurnSpeed);
 
-        driveShaft.Rotate(Vector3.down * Time.deltaTime * currantWheelTurnSpeed/2);
+        driveShaft.Rotate(Vector3.down * Time.deltaTime * currantWheelTurnSpeed / 2);
     }
 
     void SuspensionManager()

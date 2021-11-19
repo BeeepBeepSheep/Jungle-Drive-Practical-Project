@@ -77,6 +77,11 @@ public class PlayerMove : MonoBehaviour
     }
     void InputManagment()
     {
+        ////destroy test
+        //if (Input.GetKey("x"))
+        //{
+        //    Destroy(gameObject);
+        //}
         //normalize
         if (Input.GetKeyUp("a"))
         {
@@ -218,4 +223,16 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
+    //private void OnDestroy()
+    //{
+    //    GameObject meClone = gameObject;
+    //    Instantiate(meClone);
+    //    meClone.SetActive(true);
+    //    meClone.GetComponent<PlayerMove>().Respawn(meClone);
+    //}
+    //public void Respawn(GameObject me)
+    //{
+    //    Debug.Log("respawn");
+    //    me.SetActive(true);
+    //}
 }
