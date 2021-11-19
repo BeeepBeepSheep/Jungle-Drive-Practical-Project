@@ -31,6 +31,7 @@ public class PlayerMove : MonoBehaviour
     bool isFastCamAnim;
 
     public Animator carAnim;
+    public Animator steerAnim;
     public int turnStateInt = 1;
 
     public UIManager uiManagerScript;
@@ -54,7 +55,7 @@ public class PlayerMove : MonoBehaviour
     {
 
         horizontalInput = Input.GetAxis("Horizontal");
-        //carAnim.SetInteger("TurnStateInt", turnStateInt);
+        //steerAnim.SetInteger("TurnStateInt", turnStateInt);
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
 
         InputManagment();
