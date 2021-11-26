@@ -30,7 +30,6 @@ public class CarManager2 : MonoBehaviour
 
     void Start()
     {
-
     }
 
     void Update()
@@ -46,6 +45,9 @@ public class CarManager2 : MonoBehaviour
         {
             TurnWheel(wheelTurnSpeedMedium);
         }
+
+        //fix Y rotation
+        //transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
     }
     void TurnWheel(float currantWheelTurnSpeed)
     {

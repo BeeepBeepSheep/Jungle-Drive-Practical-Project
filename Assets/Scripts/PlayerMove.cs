@@ -42,6 +42,8 @@ public class PlayerMove : MonoBehaviour
         suspensionIsRaised = true;
         speedState = 0;
         car.GetComponent<BoxCollider>().material = carSuspendedPhysMat;
+
+        car.position = new Vector3(carPosition.position.x, carPosition.position.y, carPosition.position.z);
     }
     void FixedUpdate()
     {
