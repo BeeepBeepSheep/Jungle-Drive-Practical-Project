@@ -14,6 +14,8 @@ public class GroundTile : MonoBehaviour
     public GameObject TileHolder;
     public GameObject player;
 
+    public Transform nextTileSpawnPoint;
+
     int obsticlesToSpawnAmmount;
     public int minObsticles = 2;
     public int maxObsticles = 5;

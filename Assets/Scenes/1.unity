@@ -545,8 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTile: {fileID: 0}
   tiles:
-  - {fileID: 7480154201649777826, guid: bb78f229bd847c5409b2f13164736052, type: 3}
-  - {fileID: 7480154201649777826, guid: f7313ed9245f4294db825fcb75449949, type: 3}
+  - {fileID: 7480154201649777826, guid: a3afdcda0734cee499135214adc19723, type: 3}
   nextSpawnPoint: {x: 0, y: 0, z: 0}
   startSpawnTileAmmount: 15
   totalTileAmmount: 0

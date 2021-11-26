@@ -14,7 +14,6 @@ public class GroundSpawner : MonoBehaviour
     public int startSpawnTileAmmount = 25;
 
     public int totalTileAmmount;
-    GroundTile groundTileScript;
     public bool canSpawnTile = true;
 
     public Transform player;
@@ -39,7 +38,7 @@ public class GroundSpawner : MonoBehaviour
 
         //spawntile
         GameObject temp = Instantiate(nextTile, nextSpawnPoint, Quaternion.identity);
-        nextSpawnPoint = temp.transform.GetChild(0).transform.position;
+        nextSpawnPoint = temp.GetComponent<GroundTile>().nextTileSpawnPoint.position; /* transform.GetChild(0).transform.position;*/
 
         player.SetSiblingIndex(totalTileAmmount);
     }
