@@ -29,10 +29,10 @@ public class GroundSpawner : MonoBehaviour
             SpawnTile();
         }
     }
-    void LateUpdate()
-    {
-        transform.position = new Vector3(0, 0, 0);
-    }
+    //void LateUpdate()
+    //{
+    //    transform.position = new Vector3(0, 0, 0);
+    //}
     public void SpawnTile()
     {
         index = Random.Range(0, tiles.Length);

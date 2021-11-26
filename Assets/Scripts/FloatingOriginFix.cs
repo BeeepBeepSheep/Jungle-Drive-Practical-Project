@@ -23,6 +23,7 @@ public class FloatingOriginFix : MonoBehaviour
 
         if (cameraPosition.magnitude > threshold)
         {
+            Debug.Log("reset");
             foreach (Transform child in tileHolder.gameObject.transform)
             {
                 tileList.Add(child.gameObject);
@@ -31,7 +32,7 @@ public class FloatingOriginFix : MonoBehaviour
                 tilesArray[0].transform.position = tileHolder.transform.position;
                 for (int placeInArray = 1; placeInArray < tilesArray.Length; placeInArray++)
                 {
-                    tilesArray[placeInArray].transform.position = tilesArray[placeInArray - 1].transform.GetChild(0).position;
+                    tilesArray[placeInArray].transform.position = tilesArray[placeInArray - 1].transform.GetComponent<GroundTile>().nextTileSpawnPoint.position; /*transform.GetChild(0).position;*/
                 }
 
                 levelGenirator.nextSpawnPoint = tilesArray[tilesArray.Length - 1].transform.GetChild(0).transform.position; ;

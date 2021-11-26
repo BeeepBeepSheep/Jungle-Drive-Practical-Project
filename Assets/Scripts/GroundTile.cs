@@ -35,13 +35,17 @@ public class GroundTile : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        Debug.Log("enter");
         player.transform.parent = transform;
-    }
-    void OnTriggerExit(Collider collider)
-    {
         groundSpawnerScript.SpawnTile();
-        //Destroy(gameObject, 5);
+
     }
+    //void OnTriggerExit(Collider collider)
+    //{
+    //    Debug.Log("exit" + collider.transform.name);
+    //    groundSpawnerScript.SpawnTile();
+    //    Destroy(gameObject,1);
+    //}
 
     void SpawnObsticle(int ammountToSpawn)
     {
@@ -55,4 +59,9 @@ public class GroundTile : MonoBehaviour
             myObsticle.transform.parent = transform;
         }
     }
+
+    //void OnDestroy()
+    //{
+    //    Debug.Log("destroyed");
+    //}
 }
