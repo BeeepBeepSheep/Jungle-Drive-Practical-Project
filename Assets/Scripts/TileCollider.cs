@@ -9,13 +9,13 @@ public class TileCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        //Debug.Log("enter test"); 
         hostScript.MyOnTriggerEnter(col);
-        Debug.Log("enter test"); 
     }
 
     void OnTriggerExit(Collider collider)
     {
-        Debug.Log("exit test");
+        //Debug.Log("exit test");
         hostScript.MyOnTriggerExit(collider);
     }
 }
