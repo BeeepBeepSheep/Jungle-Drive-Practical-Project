@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTile: {fileID: 0}
   tiles:
-  - {fileID: 7480154201649777826, guid: 290a7217ebf12c04499300d18f2cdcde, type: 3}
+  - {fileID: 7480154201649777826, guid: 335c3692b3d11fe42bd0cbf62368b312, type: 3}
   nextSpawnPoint: {x: 0, y: 0, z: 0}
   startSpawnTileAmmount: 5
   totalTileAmmount: 0
@@ -1899,6 +1899,7 @@ MonoBehaviour:
   steerAnim: {fileID: 0}
   turnStateInt: 1
   uiManagerScript: {fileID: 1802544610}
+  tileHolder: {fileID: 828696132}
 --- !u!4 &1446477472
 Transform:
   m_ObjectHideFlags: 0

@@ -22,30 +22,28 @@ public class GroundTile : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         groundSpawnerScript = GameObject.FindObjectOfType<GroundSpawner>();
 
         TileHolder = GameObject.FindGameObjectWithTag("TileHolder");
         transform.parent = TileHolder.transform;
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
 
         obsticlesToSpawnAmmount = Random.Range(minObsticles, maxObsticles);
 
         SpawnObsticle(obsticlesToSpawnAmmount);
     }
 
-    void OnTriggerEnter(Collider col)
+    public void MyOnTriggerEnter(Collider col)
     {
-        Debug.Log("enter");
         player.transform.parent = transform;
-        groundSpawnerScript.SpawnTile();
-
     }
-    //void OnTriggerExit(Collider collider)
-    //{
-    //    Debug.Log("exit" + collider.transform.name);
-    //    groundSpawnerScript.SpawnTile();
-    //    Destroy(gameObject,1);
-    //}
+    public void MyOnTriggerExit(Collider collider)
+    {
+        groundSpawnerScript.SpawnTile();
+        Destroy(gameObject, 1);
+    }
 
     void SpawnObsticle(int ammountToSpawn)
     {
@@ -59,9 +57,4 @@ public class GroundTile : MonoBehaviour
             myObsticle.transform.parent = transform;
         }
     }
-
-    //void OnDestroy()
-    //{
-    //    Debug.Log("destroyed");
-    //}
 }

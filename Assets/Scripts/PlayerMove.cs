@@ -32,10 +32,12 @@ public class PlayerMove : MonoBehaviour
 
     public Animator carAnim;
     public Animator steerAnim;
-    public int turnStateInt = 1;
+    public int turnStateInt = 1; //if 0 left, if 1 forward, if 2 right;
 
     public UIManager uiManagerScript;
-    //if 0 left, if 1 forward, if 2 right;
+
+    public Transform tileHolder;
+
     void Start()
     {
         currantHorizontalSpeed = baseHorizontalSpeed;

@@ -14,6 +14,16 @@ public class FloatingOriginFix : MonoBehaviour
     Vector3 moveDelta;
 
     public Transform player;
+
+    Transform firstTile;
+    GroundTile firstTileScript;
+    void Start()
+    {
+        // set player in first tile
+        firstTile = tileHolder.transform.GetChild(0).transform;
+        firstTileScript = firstTile.GetComponent<GroundTile>();
+        firstTileScript.MyOnTriggerEnter(null);
+    }
     void Update()
     {
         Vector3 cameraPosition = gameObject.transform.position;
@@ -32,10 +42,10 @@ public class FloatingOriginFix : MonoBehaviour
                 tilesArray[0].transform.position = tileHolder.transform.position;
                 for (int placeInArray = 1; placeInArray < tilesArray.Length; placeInArray++)
                 {
-                    tilesArray[placeInArray].transform.position = tilesArray[placeInArray - 1].transform.GetComponent<GroundTile>().nextTileSpawnPoint.position; /*transform.GetChild(0).position;*/
+                    tilesArray[placeInArray].transform.position = tilesArray[placeInArray - 1].transform.GetComponent<GroundTile>().nextTileSpawnPoint.position;
                 }
 
-                levelGenirator.nextSpawnPoint = tilesArray[tilesArray.Length - 1].transform.GetChild(0).transform.position; ;
+                levelGenirator.nextSpawnPoint = tilesArray[tilesArray.Length - 1].transform.GetComponent<GroundTile>().nextTileSpawnPoint.position;/*transform.GetChild(0).transform.position;*/
             }
         }
     }
