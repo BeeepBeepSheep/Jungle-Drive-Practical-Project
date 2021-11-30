@@ -14,20 +14,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
---- !u!64 &3916317255630976406
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491804888461906110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6894428203817054813, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
 --- !u!1 &2061722332956302493
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +56,7 @@ GameObject:
   - component: {fileID: 5166008597974947640}
   - component: {fileID: 315787981214434134}
   m_Layer: 0
-  m_Name: Indent Short
+  m_Name: Short Indent
   m_TagString: EnvironmentTile
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -130,7 +116,7 @@ MonoBehaviour:
   - {fileID: 7748791687183935394}
   TileHolder: {fileID: 0}
   player: {fileID: 0}
-  nextTileSpawnPoint: {fileID: 3769205814753298057}
+  nextTileSpawnPoint: {fileID: 0}
   minObsticles: 5
   maxObsticles: 20
 --- !u!64 &8541940217557652858
@@ -246,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c3a7541fe1aa7114bb6fe59a8c9b08da, type: 2}
+    - target: {fileID: -2755241214562214222, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 882129737928793925, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -254,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: indentShort
       objectReference: {fileID: 0}
+    - target: {fileID: 7339356831882890532, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3a7541fe1aa7114bb6fe59a8c9b08da, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
 --- !u!4 &4859579604381574374 stripped
@@ -264,16 +258,6 @@ Transform:
 --- !u!1 &256227326698709018 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5148817236446094103, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
-  m_PrefabInstance: {fileID: 4970294597656298253}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &491804888461906110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4767400413853537203, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
-  m_PrefabInstance: {fileID: 4970294597656298253}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3769205814753298057 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8121362515086919044, guid: 2611af55d04bc5643b14e1ca7111f35a, type: 3}
   m_PrefabInstance: {fileID: 4970294597656298253}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9185225990455502329

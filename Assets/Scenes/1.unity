@@ -543,7 +543,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8389a8a32431b408c49dfca13b9851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextTile: {fileID: 0}
+  nextTile: {fileID: 7480154201649777826, guid: 290a7217ebf12c04499300d18f2cdcde, type: 3}
+  nextSpawnPoint: {x: 0, y: 0, z: 0}
+  startSpawnTileAmmount: 5
+  totalTileAmmount: 0
+  canSpawnTile: 1
+  player: {fileID: 1446477469}
+  tileHolder: {fileID: 828696132}
   tiles:
   - {fileID: 7480154201649777826, guid: 335c3692b3d11fe42bd0cbf62368b312, type: 3}
   - {fileID: 7480154201649777826, guid: a3afdcda0734cee499135214adc19723, type: 3}
@@ -555,12 +561,8 @@ MonoBehaviour:
   - {fileID: 7480154201649777826, guid: 8046da8b34ec0e748988a80f30e61892, type: 3}
   - {fileID: 7480154201649777826, guid: 31d31ce5e88cc234d8c824aa72028dc1, type: 3}
   - {fileID: 7480154201649777826, guid: 66c76048263e9b445931540d76b81ce2, type: 3}
-  nextSpawnPoint: {x: 0, y: 0, z: 0}
-  startSpawnTileAmmount: 5
-  totalTileAmmount: 0
-  canSpawnTile: 1
-  player: {fileID: 1446477472}
-  tileHolder: {fileID: 828696132}
+  firstTile: {fileID: 0}
+  firstTileScript: {fileID: 0}
 --- !u!4 &460149306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3025c3c6e280b664699b7d179cec8b27, type: 3}

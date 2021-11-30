@@ -15,15 +15,6 @@ public class FloatingOriginFix : MonoBehaviour
 
     public Transform player;
 
-    Transform firstTile;
-    GroundTile firstTileScript;
-    void Start()
-    {
-        // set player in first tile
-        firstTile = tileHolder.transform.GetChild(0).transform;
-        firstTileScript = firstTile.GetComponent<GroundTile>();
-        firstTileScript.MyOnTriggerEnter(null);
-    }
     void Update()
     {
         Vector3 cameraPosition = gameObject.transform.position;

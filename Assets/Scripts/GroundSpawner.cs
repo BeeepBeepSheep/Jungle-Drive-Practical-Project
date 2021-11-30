@@ -5,7 +5,6 @@ using UnityEngine;
 public class GroundSpawner : MonoBehaviour
 {
     public GameObject nextTile;
-    public GameObject[] tiles;
 
     int index;
     Vector3 spawnOrigin;
@@ -16,23 +15,31 @@ public class GroundSpawner : MonoBehaviour
     public int totalTileAmmount;
     public bool canSpawnTile = true;
 
-    public Transform player;
-
+    public GameObject player;
     public Transform tileHolder;
+
+    public GameObject[] tiles;
+
+    public Transform firstTile;
+    public GroundTile firstTileScript;
+
     void Start()
     {
         totalTileAmmount = startSpawnTileAmmount;
         nextSpawnPoint = tileHolder.position;
 
-        for (int i = 0; i < startSpawnTileAmmount; i++)
+        SpawnTile();
+
+        for (int i = 0; i < startSpawnTileAmmount - 1; i++)
         {
             SpawnTile();
         }
+
+        //firstTile = tileHolder.transform.GetChild(1).transform;
+        //firstTileScript = firstTile.GetComponent<GroundTile>();
+        //firstTileScript.MyOnTriggerEnter(null);
     }
-    //void LateUpdate()
-    //{
-    //    transform.position = new Vector3(0, 0, 0);
-    //}
+
     public void SpawnTile()
     {
         index = Random.Range(0, tiles.Length);
@@ -42,7 +49,7 @@ public class GroundSpawner : MonoBehaviour
         //spawntile
         GameObject temp = Instantiate(nextTile, nextSpawnPoint, Quaternion.identity);
         nextSpawnPoint = temp.GetComponent<GroundTile>().nextTileSpawnPoint.position;
-
-        player.SetSiblingIndex(totalTileAmmount);
+        temp.GetComponent<GroundTile>().player = player;
+        player.transform.SetSiblingIndex(totalTileAmmount);
     }
 }
