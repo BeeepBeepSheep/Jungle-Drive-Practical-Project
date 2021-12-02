@@ -564,6 +564,7 @@ MonoBehaviour:
   - {fileID: 7480154201649777826, guid: 2f1667f20fcbe35438f26479f1b7944f, type: 3}
   - {fileID: 7480154201649777826, guid: 8046da8b34ec0e748988a80f30e61892, type: 3}
   - {fileID: 7480154201649777826, guid: 66c76048263e9b445931540d76b81ce2, type: 3}
+  - {fileID: 7480154201649777826, guid: 5f5ceb8960a68bd428737f4814ea0613, type: 3}
   firstTile: {fileID: 0}
   firstTileScript: {fileID: 0}
 --- !u!4 &460149306 stripped
