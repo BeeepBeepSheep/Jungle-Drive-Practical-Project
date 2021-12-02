@@ -8,6 +8,12 @@ TagManager:
   - TileHolder
   - Car
   - TreeTall
+  - Rock
+  - Tree Basic
+  - Tree Huge Mini
+  - Undefined
+  - Tree Huge
+  - Rock Circle
   layers:
   - Default
   - TransparentFX

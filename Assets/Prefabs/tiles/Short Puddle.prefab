@@ -117,6 +117,7 @@ Transform:
   - {fileID: 4696546986595192929}
   - {fileID: 6291493037849003881}
   - {fileID: 3578426622094192488}
+  - {fileID: 6068190753914570074}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,23 +147,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundSpawnerScript: {fileID: 0}
-  obsticles:
-  - {fileID: 8718809221898024173, guid: 9eab0bb5156dff842bc9cc5ad74f71b8, type: 3}
-  - {fileID: 6745161572553473653, guid: d6f1836e2f8ec0f468e9ecb35d544faa, type: 3}
-  - {fileID: 6745161572553473653, guid: b8f8002084e22e14f9a5956ce0253a4a, type: 3}
-  - {fileID: 7586296005369898658, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
   obsticleToSpawn: {fileID: 6745161572553473653, guid: d6f1836e2f8ec0f468e9ecb35d544faa, type: 3}
   obsticleIndex: 0
-  maxTreeSize: 2.5
-  minTreeSize: 1
-  spawnPoints:
-  - {fileID: 7748791687183935394}
+  minTallTreeSize: 1.5
+  maxTallTreeSize: 4
+  minBasicTreeSize: 1
+  maxBasicTreeSize: 3
+  minHugeTreeSize: 1
+  maxHugeTreeSize: 1.5
   TileHolder: {fileID: 0}
   player: {fileID: 0}
   nextTileSpawnPoint: {fileID: 968854448624032068}
   obsticlesToSpawnAmmount: 0
-  minObsticles: 5
+  minObsticles: 0
   maxObsticles: 20
+  obsticles:
+  - {fileID: 8718809221898024173, guid: 9eab0bb5156dff842bc9cc5ad74f71b8, type: 3}
+  - {fileID: 8718809221898024173, guid: 17445ffb26873b943b5ca92aac5bdf3d, type: 3}
+  - {fileID: 8718809221898024173, guid: 54975beeec943834485e3a73f994a313, type: 3}
+  - {fileID: 8718809221898024173, guid: 1baf07a92427f974f833a26f5af0e858, type: 3}
+  - {fileID: 8718809221898024173, guid: 0020000a2e08af147b38183333b0057b, type: 3}
+  - {fileID: 8718809221898024173, guid: 1b7c65c7d8d58f7489b0b6d04acc44b6, type: 3}
+  - {fileID: 8718809221898024173, guid: 11eeb81f632f41f4aaa5470075f50af0, type: 3}
+  - {fileID: 8718809221898024173, guid: d8c897649eabede4ca071c2a07b3bd14, type: 3}
+  - {fileID: 8718809221898024173, guid: 778489f86c6bc0b439d3d328fa5de17d, type: 3}
+  - {fileID: 8718809221898024173, guid: e605d5e7829201045a23d6bae480318e, type: 3}
+  - {fileID: 8718809221898024173, guid: ddd19863d494b4e4f8a8deb83c835757, type: 3}
+  - {fileID: 8718809221898024173, guid: d1fe1be73744a7b459af032a29663f55, type: 3}
+  rockColours:
+  - {fileID: 2100000, guid: c89e037981826b3478d27a13a3a71b15, type: 2}
+  - {fileID: 2100000, guid: 1e6547f6ce0e2294686c9474f5ba5812, type: 2}
+  - {fileID: 2100000, guid: 7a67a204a7652e1439d7b7c10e59e6dd, type: 2}
+  - {fileID: 2100000, guid: baab610b2b6fa6f47bee8290f247368d, type: 2}
+  spawnPoints:
+  - {fileID: 7748791687183935394}
 --- !u!1 &8706650801589684389
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +212,72 @@ Transform:
   m_Father: {fileID: 1636874753530047724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3450210249125056080
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1636874753530047724}
+    m_Modifications:
+    - target: {fileID: 7586296005369898658, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_Name
+      value: Mudy Pudle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 99.827995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+--- !u!4 &6068190753914570074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8923619491940764426, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
+  m_PrefabInstance: {fileID: 3450210249125056080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3901130412004788355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,6 +410,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c251bb870ce08ab469605679d9964df4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6008006151671790458, guid: c251bb870ce08ab469605679d9964df4, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1165632366744100855, guid: c251bb870ce08ab469605679d9964df4, type: 3}
