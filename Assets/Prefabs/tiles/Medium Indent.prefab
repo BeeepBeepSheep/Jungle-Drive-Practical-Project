@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7748791687183935394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1636874753530047724}
   - component: {fileID: 5166008597974947640}
   - component: {fileID: 315787981214434134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Medium Indent
   m_TagString: EnvironmentTile
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -153,11 +153,14 @@ MonoBehaviour:
   - {fileID: 7586296005369898658, guid: 01093d920a6a3174caecdc4f067f86f9, type: 3}
   obsticleToSpawn: {fileID: 6745161572553473653, guid: d6f1836e2f8ec0f468e9ecb35d544faa, type: 3}
   obsticleIndex: 0
+  maxTreeSize: 2.5
+  minTreeSize: 1
   spawnPoints:
   - {fileID: 7748791687183935394}
   TileHolder: {fileID: 0}
   player: {fileID: 0}
   nextTileSpawnPoint: {fileID: 1936911310287970256}
+  obsticlesToSpawnAmmount: 0
   minObsticles: 5
   maxObsticles: 20
 --- !u!1 &8706650801589684389
@@ -169,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4696546986595192929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,6 +257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: midium
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5a487ccf580a074992eb3b62bbe9034, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5a487ccf580a074992eb3b62bbe9034, type: 3}
 --- !u!1 &2679106554089588830 stripped
@@ -317,6 +324,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1063203228461421988, guid: 6718504e5204c4f41be07d89734383b7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -241587437493983680, guid: 6718504e5204c4f41be07d89734383b7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -328,6 +339,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6718504e5204c4f41be07d89734383b7, type: 3}
       propertyPath: m_Name
       value: indentMedium
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6718504e5204c4f41be07d89734383b7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092822127479915898, guid: 6718504e5204c4f41be07d89734383b7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 6718504e5204c4f41be07d89734383b7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6718504e5204c4f41be07d89734383b7, type: 3}

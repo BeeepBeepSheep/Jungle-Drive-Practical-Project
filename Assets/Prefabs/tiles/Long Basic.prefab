@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7748791687183935394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1636874753530047724}
   - component: {fileID: 5166008597974947640}
   - component: {fileID: 315787981214434134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Long Basic
   m_TagString: EnvironmentTile
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -150,11 +150,14 @@ MonoBehaviour:
   - {fileID: 8718809221898024173, guid: 9eab0bb5156dff842bc9cc5ad74f71b8, type: 3}
   obsticleToSpawn: {fileID: 6745161572553473653, guid: d6f1836e2f8ec0f468e9ecb35d544faa, type: 3}
   obsticleIndex: 0
+  maxTreeSize: 2.5
+  minTreeSize: 1
   spawnPoints:
   - {fileID: 7748791687183935394}
   TileHolder: {fileID: 0}
   player: {fileID: 0}
   nextTileSpawnPoint: {fileID: 4106583270269031377}
+  obsticlesToSpawnAmmount: 0
   minObsticles: 5
   maxObsticles: 20
 --- !u!1 &8706650801589684389
@@ -166,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4696546986595192929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: long
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca21253383ab35340a3deda4bfe17512, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca21253383ab35340a3deda4bfe17512, type: 3}
 --- !u!1 &3500304405921447748 stripped
@@ -314,6 +321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5404307233738904672, guid: f72951857727c214081dee32af74b61d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 882129737928793925, guid: f72951857727c214081dee32af74b61d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -323,8 +334,20 @@ PrefabInstance:
       value: flatLong
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f72951857727c214081dee32af74b61d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f72951857727c214081dee32af74b61d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: f72951857727c214081dee32af74b61d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: f72951857727c214081dee32af74b61d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7339356831882890532, guid: f72951857727c214081dee32af74b61d, type: 3}
       propertyPath: m_Materials.Array.data[0]

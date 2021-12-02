@@ -12,11 +12,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Car
   - Water
   - UI
-  - 
-  - 
+  - RotationCar
+  - Environment
   - 
   - 
   - 

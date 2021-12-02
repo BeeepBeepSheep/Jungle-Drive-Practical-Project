@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class CarManager2 : MonoBehaviour
 {
+    public float maxXRotation = 45f;
+    public float minXRotation = -90f;
+    public float currantXRotation;
+
+    public float maxYRotation = 0f;
+    public float minYRotation = 0f;
+    public float currantYRotation;
+
+    public float maxZRotation = 20f;
+    public float minZRotation = -20f;
+    public float currantZRotation;
+
     public Transform backWheels;
     public Transform frontRightWheel;
     public Transform frontLeftWheel;
@@ -20,22 +32,16 @@ public class CarManager2 : MonoBehaviour
     public Transform frontRightSuspensionTarget;
     public Transform backLeftSuspensionTarget;
     public Transform backRightSuspensionTarget;
-    public float shortSuspensionSize;
-    public float longSuspensionSize;
-    Vector3 currantSuspensionSize;
     public Transform frontLeftSuspension;
     public Transform frontRightSuspension;
     public Transform backLeftSuspension;
     public Transform backRightSuspension;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         //suspension
         SuspensionManager();
+
         //wheel speed
         if (playerMoveScript.speedState == 1)
         {
@@ -45,9 +51,11 @@ public class CarManager2 : MonoBehaviour
         {
             TurnWheel(wheelTurnSpeedMedium);
         }
+    }
 
-        //fix Y rotation
-        //transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
+    void LateUpdate()
+    {
+        RotationManager();
     }
     void TurnWheel(float currantWheelTurnSpeed)
     {
@@ -64,5 +72,11 @@ public class CarManager2 : MonoBehaviour
         frontRightSuspension.LookAt(frontRightSuspensionTarget);
         backLeftSuspension.LookAt(backLeftSuspensionTarget);
         backRightSuspension.LookAt(backRightSuspensionTarget);
+    }
+
+    void RotationManager()
+    {
+        //fix y rotation
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
     }
 }
