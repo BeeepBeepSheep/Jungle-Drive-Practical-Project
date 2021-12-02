@@ -151,8 +151,8 @@ GameObject:
   - component: {fileID: 118176522}
   - component: {fileID: 118176521}
   - component: {fileID: 118176520}
-  - component: {fileID: 118176519}
   - component: {fileID: 118176525}
+  - component: {fileID: 118176519}
   m_Layer: 3
   m_Name: CarPhysiscs
   m_TagString: Car
@@ -286,12 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa6d287a38b7f34fb3a4ac331faa5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxXRotation: 45
-  minXRotation: -45
+  maxXRotation: 35
+  minXRotation: -35
   currantXRotation: 0
-  maxYRotation: 0
-  minYRotation: 0
-  currantYRotation: 0
   maxZRotation: 20
   minZRotation: -20
   currantZRotation: 0

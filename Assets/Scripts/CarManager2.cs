@@ -5,12 +5,8 @@ using UnityEngine;
 public class CarManager2 : MonoBehaviour
 {
     public float maxXRotation = 45f;
-    public float minXRotation = -90f;
+    public float minXRotation = -45f;
     public float currantXRotation;
-
-    public float maxYRotation = 0f;
-    public float minYRotation = 0f;
-    public float currantYRotation;
 
     public float maxZRotation = 20f;
     public float minZRotation = -20f;
@@ -76,7 +72,33 @@ public class CarManager2 : MonoBehaviour
 
     void RotationManager()
     {
+
+        currantXRotation = transform.rotation.x;
+        currantZRotation = transform.rotation.z;
+
+        //x rotation 
+        if (currantXRotation < minXRotation)
+        {
+            transform.localEulerAngles = new Vector3(minXRotation, 0, transform.localEulerAngles.z);
+        }
+        else if (currantXRotation > maxXRotation)
+        {
+            transform.localEulerAngles = new Vector3(maxXRotation, 0, transform.localEulerAngles.z);
+        }
+        //z rotation
+        if (currantZRotation < minZRotation)
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        }
+        else if (currantZRotation > maxZRotation)
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, minZRotation);
+        }
+
         //fix y rotation
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        if (transform.rotation.y != 0)
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        }
     }
 }
