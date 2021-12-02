@@ -47,12 +47,15 @@ public class CarManager2 : MonoBehaviour
         {
             TurnWheel(wheelTurnSpeedMedium);
         }
+
+        RotationManagerOther();
     }
 
     void LateUpdate()
     {
-        RotationManager();
+        RotationManagerY();
     }
+
     void TurnWheel(float currantWheelTurnSpeed)
     {
         backWheels.Rotate(Vector3.left * Time.deltaTime * currantWheelTurnSpeed);
@@ -70,35 +73,43 @@ public class CarManager2 : MonoBehaviour
         backRightSuspension.LookAt(backRightSuspensionTarget);
     }
 
-    void RotationManager()
+    void RotationManagerY()
     {
-
-        currantXRotation = transform.rotation.x;
-        currantZRotation = transform.rotation.z;
-
-        //x rotation 
-        if (currantXRotation < minXRotation)
-        {
-            transform.localEulerAngles = new Vector3(minXRotation, 0, transform.localEulerAngles.z);
-        }
-        else if (currantXRotation > maxXRotation)
-        {
-            transform.localEulerAngles = new Vector3(maxXRotation, 0, transform.localEulerAngles.z);
-        }
-        //z rotation
-        if (currantZRotation < minZRotation)
-        {
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
-        }
-        else if (currantZRotation > maxZRotation)
-        {
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, minZRotation);
-        }
-
         //fix y rotation
         if (transform.rotation.y != 0)
         {
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        }
+    }
+    void RotationManagerOther()
+    {
+        currantXRotation = transform.rotation.x * 100;
+        currantZRotation = transform.rotation.z * 100;
+
+        // x rotation
+        if (currantXRotation < minXRotation)
+        {
+            //Debug.Log("x");
+
+            transform.localEulerAngles = new Vector3(minXRotation, 0, transform.localEulerAngles.z);
+        }
+        else if (currantXRotation > maxXRotation)
+        {
+            //Debug.Log("x");
+
+            transform.localEulerAngles = new Vector3(maxXRotation, 0, transform.localEulerAngles.z);
+        }
+
+        //z rotation
+        if (currantZRotation < minZRotation)
+        {
+            //Debug.Log("z");
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        }
+        else if (currantZRotation > maxZRotation)
+        {
+            //Debug.Log("z");
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, minZRotation);
         }
     }
 }
