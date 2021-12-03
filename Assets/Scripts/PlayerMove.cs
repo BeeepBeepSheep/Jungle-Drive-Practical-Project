@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     public float slownessDelayAfetrMaxSpeed = 1f;
     public float speedUpDelayAfterMud = 2f;
 
+    public bool canMoveLeft;
+    public bool canMoveRight;
     public float maxRightMove;
     public float maxLeftMove;
 
@@ -60,15 +62,16 @@ public class PlayerMove : MonoBehaviour
     }
     void Update()
     {
-        
+        InputManagment();
+
         horizontalInput = Input.GetAxis("Horizontal");
         //steerAnim.SetInteger("TurnStateInt", turnStateInt);
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
 
-        InputManagment();
+        //InputManagment();
 
         //fix horizontalm move
-        if (turnStateInt == 2)
+        if (turnStateInt == 1)
         {
             currantHorizontalSpeed = 0;
         }
@@ -86,51 +89,66 @@ public class PlayerMove : MonoBehaviour
     {
         //horizontal
 
-        //right
-        if (Input.GetKey("d"))
+        //bounds
+        if (transform.position.x < maxRightMove && Input.GetKey("d"))
         {
-            if (transform.position.x < maxRightMove)
+            //right
+            turnStateInt = 2;
+            if (Input.GetKey("a"))
             {
-                turnStateInt = 3;
-                if (Input.GetKey("a"))
-                {
-                    turnStateInt = 2;
-                }
+                turnStateInt = 1;
             }
         }
-
-        //left
-        if (Input.GetKey("a"))
+        
+        if (transform.position.x > maxLeftMove && Input.GetKey("a"))
         {
-            if (transform.position.x > maxLeftMove)
+            //left
+            turnStateInt = 0;
+            if (Input.GetKey("d"))
             {
-                turnStateInt = 0;
-                if (Input.GetKey("d"))
-                {
-                    turnStateInt = 2;
-                }
+                turnStateInt = 1;
             }
         }
-
-        //normalize
+        
+        //normalize horizontal
         if (Input.GetKeyUp("a"))
         {
-            turnStateInt = 2;
+            turnStateInt = 1;
         }
         if (Input.GetKeyUp("d"))
         {
-            turnStateInt = 2;
+            turnStateInt = 1;
         }
         if (Input.GetKey("a") && Input.GetKey("b"))
         {
-            turnStateInt = 2;
+            turnStateInt = 1;
         }
 
-        //suspension
+        //to far right
+        if(transform.position.x > maxRightMove)
+        {
+            turnStateInt = 1;
+            //left
+            if (Input.GetKey("a"))
+            {
+                turnStateInt = 0;
+            }
+        }
+
+        //to far left
+        if (transform.position.x < maxLeftMove)
+        {
+            turnStateInt = 1;
+            //right
+            if (Input.GetKey("d"))
+            {
+                turnStateInt = 2;
+            }
+        }
+
+        //suspension & speed
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(turnStateInt);
-
             SuspensionLogic();
             SpeedManager();
         }
