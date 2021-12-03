@@ -17,6 +17,9 @@ public class PlayerMove : MonoBehaviour
     public float slownessDelayAfetrMaxSpeed = 1f;
     public float speedUpDelayAfterMud = 2f;
 
+    public float maxRightMove;
+    public float maxLeftMove;
+
     public PhysicMaterial carSuspendedPhysMat;
 
     public float currantHorizontalSpeed = 25f;
@@ -57,14 +60,14 @@ public class PlayerMove : MonoBehaviour
     }
     void Update()
     {
-
+        
         horizontalInput = Input.GetAxis("Horizontal");
         //steerAnim.SetInteger("TurnStateInt", turnStateInt);
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
 
         InputManagment();
-        //fix horizontalm move
 
+        //fix horizontalm move
         if (turnStateInt == 2)
         {
             currantHorizontalSpeed = 0;
@@ -81,11 +84,34 @@ public class PlayerMove : MonoBehaviour
     }
     void InputManagment()
     {
-        ////destroy test
-        //if (Input.GetKey("x"))
-        //{
-        //    Destroy(gameObject);
-        //}
+        //horizontal
+
+        //right
+        if (Input.GetKey("d"))
+        {
+            if (transform.position.x < maxRightMove)
+            {
+                turnStateInt = 3;
+                if (Input.GetKey("a"))
+                {
+                    turnStateInt = 2;
+                }
+            }
+        }
+
+        //left
+        if (Input.GetKey("a"))
+        {
+            if (transform.position.x > maxLeftMove)
+            {
+                turnStateInt = 0;
+                if (Input.GetKey("d"))
+                {
+                    turnStateInt = 2;
+                }
+            }
+        }
+
         //normalize
         if (Input.GetKeyUp("a"))
         {
@@ -99,29 +125,12 @@ public class PlayerMove : MonoBehaviour
         {
             turnStateInt = 2;
         }
-        //left
-        if (Input.GetKey("a"))
-        {
-            turnStateInt = 0;
-            if (Input.GetKey("d"))
-            {
-                turnStateInt = 2;
-            }
-        }
-
-        //right
-        if (Input.GetKey("d"))
-        {
-            turnStateInt = 3;
-            if (Input.GetKey("a"))
-            {
-                turnStateInt = 2;
-            }
-        }
 
         //suspension
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log(turnStateInt);
+
             SuspensionLogic();
             SpeedManager();
         }
@@ -227,16 +236,4 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-    //private void OnDestroy()
-    //{
-    //    GameObject meClone = gameObject;
-    //    Instantiate(meClone);
-    //    meClone.SetActive(true);
-    //    meClone.GetComponent<PlayerMove>().Respawn(meClone);
-    //}
-    //public void Respawn(GameObject me)
-    //{
-    //    Debug.Log("respawn");
-    //    me.SetActive(true);
-    //}
 }

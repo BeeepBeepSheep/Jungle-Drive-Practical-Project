@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BambooLogic : MonoBehaviour
 {
-    void OnTriggerEnter()
+    void OnCollisionEnter()
     {
         Debug.Log("bamboo");
         Destroy(gameObject);
