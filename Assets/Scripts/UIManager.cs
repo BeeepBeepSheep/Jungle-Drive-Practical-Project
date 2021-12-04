@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,11 +13,51 @@ public class UIManager : MonoBehaviour
     public GameObject SpeedIndicator_DoubleArrow;
     public GameObject SpeedIndicator_TrippleArrow;
 
+    public bool gameIsPaused = false;
+    public GameObject pauseMenuUI;
+
+    void Start()
+    {
+        ResumeGame();
+    }
     void Update()
     {
         SpeedIndicators();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (gameIsPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
     }
 
+    public void ResumeGame()
+    {
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void PauseGame()
+    {
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
     void SpeedIndicators()
     {
         if (playerMoveScript.speedState == 1)

@@ -43,7 +43,7 @@ public class GroundTile : MonoBehaviour
 
         //obsticlesToSpawnAmmount = Random.Range(minObsticles, maxObsticles);
 
-        SpawnObsticles(/*obsticlesToSpawnAmmount*/ 1);
+        SpawnObsticles(obsticlesToSpawnAmmount);
     }
 
     public void MyOnTriggerEnter(Collider col)
@@ -60,57 +60,69 @@ public class GroundTile : MonoBehaviour
     {
         for (int i = minObsticles; i < ammountToSpawn; i++)
         {
+            //select obsticle
             obsticleIndex = Random.Range(0, obsticles.Length);
             obsticleToSpawn = obsticles[obsticleIndex];
-            GameObject myObsticle = Instantiate(obsticleToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, obsticleToSpawn.transform.rotation);
 
+            ////select spawn point and remove from array
+            //int seletectedSpawnPointIndex = Random.Range(0, spawnPoints.Length);
+            //Vector3 selectedSpawnPoint = spawnPoints[seletectedSpawnPointIndex].position;
+
+            //spawn
+            GameObject myObsticle = Instantiate(obsticleToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, obsticleToSpawn.transform.rotation);
             myObsticle.transform.parent = transform;
+
+            //remove
+            //remove
+            //remove
+            //remove
+
             // random y rotation
             int randdonYRot = Random.Range(0, 360);
             myObsticle.transform.Rotate(Vector3.down * randdonYRot);
 
-            //// trees
-            //if (myObsticle.tag != "Tree HugeMini" && myObsticle.tag == "Rock Circle")
-            //{
-            //    // random y rotation
-            //    int randdonYRot = Random.Range(0, 360);
-            //    myObsticle.transform.Rotate(Vector3.down * randdonYRot);
+            // trees
+            if (myObsticle.tag != "tree hugemini" && myObsticle.tag == "rock circle")
+            {
+                // random y rotation
+                int randdonyrot = Random.Range(0, 360);
+                myObsticle.transform.Rotate(Vector3.down * randdonyrot);
 
-            //    //size
-            //    if (myObsticle.tag == "TreeTall")
-            //    {
-            //        float currantTreeSize = Random.Range(minTallTreeSize, maxTallTreeSize);
-            //        myObsticle.transform.localScale = new Vector3(currantTreeSize, currantTreeSize, currantTreeSize);
-            //    }
+                //size
+                if (myObsticle.tag == "treetall")
+                {
+                    float curranttreesize = Random.Range(minTallTreeSize, maxTallTreeSize);
+                    myObsticle.transform.localScale = new Vector3(curranttreesize, curranttreesize, curranttreesize);
+                }
 
-            //    if (myObsticle.tag == "Tree Basic")
-            //    {
-            //        float currantTreeSize = Random.Range(minBasicTreeSize, maxBasicTreeSize);
-            //        myObsticle.transform.localScale = new Vector3(currantTreeSize, currantTreeSize, currantTreeSize);
-            //    }
+                if (myObsticle.tag == "tree basic")
+                {
+                    float curranttreesize = Random.Range(minBasicTreeSize, maxBasicTreeSize);
+                    myObsticle.transform.localScale = new Vector3(curranttreesize, curranttreesize, curranttreesize);
+                }
 
-            //    if (myObsticle.tag == "Tree Huge")
-            //    {
-            //        float currantTreeSize = Random.Range(minHugeTreeSize, maxHugeTreeSize);
-            //        myObsticle.transform.localScale = new Vector3(currantTreeSize, currantTreeSize, currantTreeSize);
-            //    }
-            //}
+                if (myObsticle.tag == "tree huge")
+                {
+                    float curranttreesize = Random.Range(minHugeTreeSize, maxHugeTreeSize);
+                    myObsticle.transform.localScale = new Vector3(curranttreesize, curranttreesize, curranttreesize);
+                }
+            }
 
-            ////duckable obsticles 
-            //if (myObsticle.tag == "Tree Huge Mini" || myObsticle.tag == "Rock Circle")
-            //{
-            //    int index = Random.Range(0, 1);
-            //    int yRotation;
-            //    if (index == 0)
-            //    {
-            //        yRotation = 0;
-            //    }
-            //    else
-            //    {
-            //        yRotation = 180;
-            //    }
-            //    myObsticle.transform.Rotate(Vector3.down * yRotation);
-            //}
+            //duckable obsticles 
+            if (myObsticle.tag == "tree huge mini" || myObsticle.tag == "rock circle")
+            {
+                int index = Random.Range(0, 1);
+                int yrotation;
+                if (index == 0)
+                {
+                    yrotation = 0;
+                }
+                else
+                {
+                    yrotation = 180;
+                }
+                myObsticle.transform.Rotate(Vector3.down * yrotation);
+            }
 
             if (myObsticle.tag == "Rock Circle" || myObsticle.tag == "Rock")
             {
