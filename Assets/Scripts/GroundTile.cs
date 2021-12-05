@@ -41,7 +41,7 @@ public class GroundTile : MonoBehaviour
         transform.parent = TileHolder.transform;
         //player = GameObject.FindGameObjectWithTag("Player");
 
-        //obsticlesToSpawnAmmount = Random.Range(minObsticles, maxObsticles);
+        obsticlesToSpawnAmmount = Random.Range(minObsticles, maxObsticles);
 
         SpawnObsticles(obsticlesToSpawnAmmount);
     }
