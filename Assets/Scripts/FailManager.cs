@@ -5,10 +5,11 @@ using UnityEngine;
 public class FailManager : MonoBehaviour
 {
     public Score scoreScipt;
+    public UIManager uiManagerScript;
+
     public void Fail()
     {
-        Debug.Log("fail");
-
+        uiManagerScript.EndGame();
         scoreScipt.CoinsAddToTotal();
         Time.timeScale = 0;
     }

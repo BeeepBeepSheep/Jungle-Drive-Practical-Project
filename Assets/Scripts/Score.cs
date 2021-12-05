@@ -4,14 +4,17 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Text currantCoinsText;
-    public Text totalCoinsCore;
+    public Text coinsCollected;
+    public Text coinsBankText;
 
     public int currantCoins = 0;
+    public int currantBank;
+
 
     void Start()
     {
-        //totalCoinsCore.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
-        Debug.Log(PlayerPrefs.GetInt("TotalCoins"));
+        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
+        coinsBankText.text = currantBank.ToString();
     }
     void Update()
     {
@@ -28,26 +31,37 @@ public class Score : MonoBehaviour
 
     public void CurrantCoinIncrease(int coinsIntake)
     {
+        //currant coins in level
         currantCoins += coinsIntake;
+
         currantCoinsText.text = currantCoins.ToString();
+        coinsCollected.text = currantCoins.ToString();
 
-        if (currantCoins > PlayerPrefs.GetInt("TotalCoins", 0))
-        {
-            //PlayerPrefs.SetInt("TotalCoins", currantCoins);
+        //bank
+        currantBank += coinsIntake;
 
-            //totalCoinsCore.text = currantCoins.ToString();
-        }
+        //if (currantCoins > PlayerPrefs.GetInt("TotalCoins", 0))
+        //{
+        //PlayerPrefs.SetInt("TotalCoins", currantCoins);
+
+        //totalCoinsCore.text = currantCoins.ToString();
+        //}
     }
 
     public void CoinsAddToTotal()
     {
-        PlayerPrefs.SetInt("TotalCoins", currantCoins + PlayerPrefs.GetInt("TotalCoins",0));
-        Debug.Log(PlayerPrefs.GetInt("TotalCoins"));
-        totalCoinsCore.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
+        //add currant to main bank
+        PlayerPrefs.SetInt("TotalCoins", currantBank);
+        coinsBankText.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
     }
     public void ResetStats()
     {
         PlayerPrefs.DeleteKey("TotalCoins");
+        currantCoins = 0;
+        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
+
+        currantCoinsText.text = currantCoins.ToString();
+        coinsCollected.text = currantCoins.ToString();
         //PlayerPrefs.DeleteAll();
     }
 }

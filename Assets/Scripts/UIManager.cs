@@ -15,10 +15,15 @@ public class UIManager : MonoBehaviour
 
     public bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject failMenuUI;
+
+    public Score scoreScript;
+
 
     void Start()
     {
         ResumeGame();
+        failMenuUI.SetActive(false);
     }
     void Update()
     {
@@ -41,6 +46,8 @@ public class UIManager : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
+
+        gameIsPaused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -49,8 +56,24 @@ public class UIManager : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.None;
         //Cursor.visible = true;
+
+        gameIsPaused = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void EndGame()
+    {
+        failMenuUI.SetActive(true);
+        scoreScript.CoinsAddToTotal();
+        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        failMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Play");
     }
 
     public void MainMenu()
