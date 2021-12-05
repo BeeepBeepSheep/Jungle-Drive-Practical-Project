@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Score : MonoBehaviour
 {
@@ -10,14 +11,23 @@ public class Score : MonoBehaviour
     public int currantCoins = 0;
     public int currantBank;
 
+    float currantTime;
+    bool stopWatchActive = false;
+    public Text currantTimeText;
+    public Text logestTimFast;
 
     void Start()
     {
+        StartStopWatch();
         currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
         coinsBankText.text = currantBank.ToString();
+
+        currantTime = 0;
     }
     void Update()
     {
+        StopWatch();
+
         if (Input.GetKeyDown("x"))
         {
             CurrantCoinIncrease(1);
@@ -46,6 +56,40 @@ public class Score : MonoBehaviour
 
         //totalCoinsCore.text = currantCoins.ToString();
         //}
+    }
+
+    void StopWatch()
+    {
+        if(stopWatchActive)
+        {
+            currantTime = currantTime + Time.deltaTime;
+        }
+        TimeSpan time = TimeSpan.FromSeconds(currantTime);
+        currantTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
+
+        if (currantTime > PlayerPrefs.GetFloat("LogestTimeFast", 0))
+        {
+            PlayerPrefs.SetFloat("LogestTimeFast", currantTime);
+            //need to fix longest time fast scoreing 
+            //need to fix longest time fast scoreing 
+            //need to fix longest time fast scoreing 
+            //need to fix longest time fast scoreing 
+            //need to fix longest time fast scoreing 
+            //need to fix longest time fast scoreing 
+            //need to fix longest time fast scoreing 
+            logestTimFast.text = currantTimeText.text;
+        }
+    }
+
+    public void StartStopWatch()
+    {
+        stopWatchActive = true;
+        currantTime = 0;
+    }
+    public void StopStopWatch()
+    {
+        stopWatchActive = false;
+        currantTime = 0;
     }
 
     public void CoinsAddToTotal()

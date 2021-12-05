@@ -43,6 +43,8 @@ public class PlayerMove : MonoBehaviour
 
     public Transform tileHolder;
 
+    public Score scoreScript;
+
     void Start()
     {
         currantHorizontalSpeed = baseHorizontalSpeed;
@@ -218,6 +220,8 @@ public class PlayerMove : MonoBehaviour
         camAnim.SetBool("isFast", isFastCamAnim);
 
         exitMudRaisedFast = false;
+
+        scoreScript.StartStopWatch();
     }
     public IEnumerator AllowSpeedUp()
     {
@@ -231,6 +235,8 @@ public class PlayerMove : MonoBehaviour
         speedState = 0;
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
+
+        scoreScript.StopStopWatch();
     }
     public void SetSpeedMud()
     {
@@ -238,6 +244,8 @@ public class PlayerMove : MonoBehaviour
         speedState = -1;
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
+
+        scoreScript.StopStopWatch();
     }
 
     public IEnumerator SlowdownDelay()
