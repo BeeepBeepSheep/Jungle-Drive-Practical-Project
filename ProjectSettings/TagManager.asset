@@ -16,6 +16,7 @@ TagManager:
   - Rock Circle
   - ScoreManager
   - Coin
+  - Customizer
   layers:
   - Default
   - TransparentFX

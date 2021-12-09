@@ -34,39 +34,22 @@ public class CarManager2 : MonoBehaviour
     public Transform backLeftSuspension;
     public Transform backRightSuspension;
 
-    bool isInPlayMode;
-    void Start()
+    void Update()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
+        //suspension
+        SuspensionManager();
 
-        if (currentScene.name == "Play")
+        //wheel speed
+        if (playerMoveScript.speedState == 1)
         {
-            isInPlayMode = true;
+            TurnWheel(wheelTurnSpeedFast);
         }
         else
         {
-            isInPlayMode = false;
+            TurnWheel(wheelTurnSpeedMedium);
         }
-    }
-    void Update()
-    {
-        if(isInPlayMode)
-        {
-            //suspension
-            SuspensionManager();
 
-            //wheel speed
-            if (playerMoveScript.speedState == 1)
-            {
-                TurnWheel(wheelTurnSpeedFast);
-            }
-            else
-            {
-                TurnWheel(wheelTurnSpeedMedium);
-            }
-
-            RotationManagerOther();
-        }
+        RotationManagerOther();
     }
 
     void LateUpdate()
