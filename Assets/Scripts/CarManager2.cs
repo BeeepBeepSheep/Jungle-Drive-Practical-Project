@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarManager2 : MonoBehaviour
 {
@@ -33,22 +34,39 @@ public class CarManager2 : MonoBehaviour
     public Transform backLeftSuspension;
     public Transform backRightSuspension;
 
-    void Update()
+    bool isInPlayMode;
+    void Start()
     {
-        //suspension
-        SuspensionManager();
+        Scene currentScene = SceneManager.GetActiveScene();
 
-        //wheel speed
-        if (playerMoveScript.speedState == 1)
+        if (currentScene.name == "Play")
         {
-            TurnWheel(wheelTurnSpeedFast);
+            isInPlayMode = true;
         }
         else
         {
-            TurnWheel(wheelTurnSpeedMedium);
+            isInPlayMode = false;
         }
+    }
+    void Update()
+    {
+        if(isInPlayMode)
+        {
+            //suspension
+            SuspensionManager();
 
-        RotationManagerOther();
+            //wheel speed
+            if (playerMoveScript.speedState == 1)
+            {
+                TurnWheel(wheelTurnSpeedFast);
+            }
+            else
+            {
+                TurnWheel(wheelTurnSpeedMedium);
+            }
+
+            RotationManagerOther();
+        }
     }
 
     void LateUpdate()
@@ -65,7 +83,7 @@ public class CarManager2 : MonoBehaviour
         driveShaft.Rotate(Vector3.down * Time.deltaTime * currantWheelTurnSpeed / 2);
     }
 
-    void SuspensionManager()
+    public void SuspensionManager()
     {
         frontLeftSuspension.LookAt(frontLeftSuspensionTarget);
         frontRightSuspension.LookAt(frontRightSuspensionTarget);
