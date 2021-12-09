@@ -44,6 +44,7 @@ public class PlayerMove : MonoBehaviour
     public Transform tileHolder;
 
     public Score scoreScript;
+    public EngineOverheat engineHeatScript;
 
     void Start()
     {
@@ -67,10 +68,7 @@ public class PlayerMove : MonoBehaviour
         InputManagment();
 
         horizontalInput = Input.GetAxis("Horizontal");
-        //steerAnim.SetInteger("TurnStateInt", turnStateInt);
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
-
-        //InputManagment();
 
         //fix horizontalm move
         if (turnStateInt == 1)
@@ -84,8 +82,6 @@ public class PlayerMove : MonoBehaviour
 
         //car height physics
         car.position = new Vector3(carPosition.position.x, car.position.y, carPosition.position.z);
-
-        //SpeedManager();
     }
     void InputManagment()
     {
@@ -221,7 +217,8 @@ public class PlayerMove : MonoBehaviour
 
         exitMudRaisedFast = false;
 
-        scoreScript.StartStopWatch();
+        //scoreScript.StartStopWatch();
+        engineHeatScript.carIsFast = true;
     }
     public IEnumerator AllowSpeedUp()
     {
@@ -236,7 +233,8 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
-        scoreScript.StopStopWatch();
+        //scoreScript.StopStopWatch();
+        engineHeatScript.carIsFast = false;
     }
     public void SetSpeedMud()
     {
@@ -245,7 +243,8 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
-        scoreScript.StopStopWatch();
+        //scoreScript.StopStopWatch();
+        engineHeatScript.carIsFast = false;
     }
 
     public IEnumerator SlowdownDelay()

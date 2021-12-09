@@ -18,6 +18,11 @@ public class MenuManager : MonoBehaviour
         
     }
 
+    public void UpdateText()
+    {
+        totalCoinsText.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
+
+    }
     public void Play()
     {
         SceneManager.LoadScene("Play");

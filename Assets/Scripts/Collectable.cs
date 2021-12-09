@@ -20,8 +20,12 @@ public class Collectable : MonoBehaviour
             transform.Rotate(Vector3.up * Time.deltaTime * -spinSpeed);
         }
     }
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider collider)
     {
-        scoreScript.CurrantCoinIncrease(worth);
+        if(collider.transform.tag == "Car")
+        {
+            scoreScript.CurrantCoinIncrease(worth);
+            Destroy(gameObject);
+        }
     }
 }
