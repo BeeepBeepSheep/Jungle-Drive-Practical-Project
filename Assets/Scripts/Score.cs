@@ -16,6 +16,20 @@ public class Score : MonoBehaviour
     public Text currantTimeText;
     public Text logestTimFast;
 
+    public int coinsForClump1 = 25;
+    public int coinsForClump2 = 75;
+    public int coinsForClump3 = 150;
+    public int coinsForClump4 = 300;
+    public int coinsForClump5 = 500;
+    public int coinsForChest = 750;
+
+    public GameObject coinsClump1;
+    public GameObject coinsClump2;
+    public GameObject coinsClump3;
+    public GameObject coinsClump4;
+    public GameObject coinsClump5;
+    public GameObject coinsChest;
+
     void Start()
     {
         //StartStopWatch();
@@ -23,6 +37,12 @@ public class Score : MonoBehaviour
         coinsBankText.text = currantBank.ToString();
 
         //currantTime = 0;
+        coinsClump1.SetActive(false);
+        coinsClump2.SetActive(false);
+        coinsClump3.SetActive(false);
+        coinsClump4.SetActive(false);
+        coinsClump5.SetActive(false);
+        coinsChest.SetActive(false);
     }
     void Update()
     {
@@ -50,6 +70,7 @@ public class Score : MonoBehaviour
         //bank
         currantBank += coinsIntake;
 
+        CoinsInTruckBed();
         //if (currantCoins > PlayerPrefs.GetInt("TotalCoins", 0))
         //{
         //PlayerPrefs.SetInt("TotalCoins", currantCoins);
@@ -91,6 +112,44 @@ public class Score : MonoBehaviour
     //    stopWatchActive = false;
     //    currantTime = 0;
     //}
+
+    void CoinsInTruckBed()
+    {
+        if (currantCoins >= coinsForClump1)
+        {
+            coinsClump1.SetActive(true);
+        }
+        else if (currantCoins >= coinsForClump2)
+        {
+            coinsClump2.SetActive(true);
+        }
+        else if (currantCoins >= coinsForClump3)
+        {
+            coinsClump3.SetActive(true);
+        }
+        else if (currantCoins >= coinsForClump4)
+        {
+            coinsClump4.SetActive(true);
+        }
+        else if (currantCoins >= coinsForClump5)
+        {
+            coinsClump5.SetActive(true);
+        }
+        else if (currantCoins >= coinsForChest)
+        {
+            coinsChest.SetActive(true);
+            coinsClump5.SetActive(false);
+        }
+        else
+        {
+            coinsClump1.SetActive(false);
+            coinsClump2.SetActive(false);
+            coinsClump3.SetActive(false);
+            coinsClump4.SetActive(false);
+            coinsClump5.SetActive(false);
+            coinsChest.SetActive(false);
+        }
+    }
 
     public void CoinsAddToTotal()
     {
