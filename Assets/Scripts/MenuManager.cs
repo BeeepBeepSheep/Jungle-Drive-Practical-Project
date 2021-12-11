@@ -27,4 +27,8 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Play");
     }
+    public void LoadPortfolio()
+    {
+        System.Diagnostics.Process.Start("https://www.lueke.live/page1.html#top");
+    }
 }

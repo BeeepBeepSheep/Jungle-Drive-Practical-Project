@@ -119,28 +119,28 @@ public class Score : MonoBehaviour
         {
             coinsClump1.SetActive(true);
         }
-        else if (currantCoins >= coinsForClump2)
+        if (currantCoins >= coinsForClump2)
         {
             coinsClump2.SetActive(true);
         }
-        else if (currantCoins >= coinsForClump3)
+        if (currantCoins >= coinsForClump3)
         {
             coinsClump3.SetActive(true);
         }
-        else if (currantCoins >= coinsForClump4)
+        if (currantCoins >= coinsForClump4)
         {
             coinsClump4.SetActive(true);
         }
-        else if (currantCoins >= coinsForClump5)
+        if (currantCoins >= coinsForClump5)
         {
             coinsClump5.SetActive(true);
         }
-        else if (currantCoins >= coinsForChest)
+        if (currantCoins >= coinsForChest)
         {
             coinsChest.SetActive(true);
             coinsClump5.SetActive(false);
         }
-        else
+        if (currantCoins <= 0)
         {
             coinsClump1.SetActive(false);
             coinsClump2.SetActive(false);
