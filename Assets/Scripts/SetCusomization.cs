@@ -18,51 +18,59 @@ public class SetCusomization : MonoBehaviour
         GetInfo();
     }
 
-    void Update()
-    {
-        
-    }
     public void ToggleFrame()
     {
-        if(metalFrame.activeInHierarchy)
+        if (PlayerPrefs.GetInt("metalFrameIsEquiped", 0) == 1) // if true
         {
             metalFrame.SetActive(false);
             metalFrameLights.SetActive(false);
+
+            PlayerPrefs.SetInt("metalFrameIsEquiped", 0);
         }
         else
         {
             metalFrame.SetActive(true);
             metalFrameLights.SetActive(true);
+
+            PlayerPrefs.SetInt("metalFrameIsEquiped", 1);
         }
+        Debug.Log("frame is: " + PlayerPrefs.GetInt("metalFrameIsEquiped", 0));
+
     }
+
     public void ToggleSpoiler()
     {
-        if (spoiler.activeInHierarchy)
+        if (PlayerPrefs.GetInt("spoilerIsEquiped", 0) == 1) // if true
         {
             spoiler.SetActive(false);
+            PlayerPrefs.SetInt("spoilerIsEquiped", 0);
         }
         else
         {
             spoiler.SetActive(true);
+            PlayerPrefs.SetInt("spoilerIsEquiped", 1);
         }
     }
+
     public void ToggleExhaust()
     {
-        if (bigExhaust.activeInHierarchy)
+        if (PlayerPrefs.GetInt("bigExhasutIsEquiped", 0) == 1) // if true
         {
             bigExhaust.SetActive(false);
             smallExhaust.SetActive(true);
 
-            bigExhaustIcon.SetActive(false);
-            smallExhaustIcon.SetActive(true);
+            bigExhaustIcon.SetActive(true);
+            smallExhaustIcon.SetActive(false);
+            PlayerPrefs.SetInt("bigExhasutIsEquiped", 0);
         }
         else
         {
             bigExhaust.SetActive(true);
             smallExhaust.SetActive(false);
 
-            bigExhaustIcon.SetActive(true);
-            smallExhaustIcon.SetActive(false);
+            bigExhaustIcon.SetActive(false);
+            smallExhaustIcon.SetActive(true);
+            PlayerPrefs.SetInt("bigExhasutIsEquiped", 1);
         }
     }
 
@@ -75,11 +83,15 @@ public class SetCusomization : MonoBehaviour
         {
             metalFrame.SetActive(true);
             metalFrameLights.SetActive(true);
+
+            PlayerPrefs.SetInt("metalFrameIsEquiped", 1);
         }
         else
         {
             metalFrame.SetActive(false);
             metalFrameLights.SetActive(false);
+
+            PlayerPrefs.SetInt("metalFrameIsEquiped", 0);
         }
 
         //exhaust
@@ -87,20 +99,25 @@ public class SetCusomization : MonoBehaviour
         {
             bigExhaust.SetActive(true);
             smallExhaust.SetActive(false);
+
+            PlayerPrefs.SetInt("bigExhasutIsEquiped", 1);
         }
         else
         {
             bigExhaust.SetActive(false);
             smallExhaust.SetActive(true);
+            PlayerPrefs.SetInt("bigExhasutIsEquiped", 0);
         }
 
         if (PlayerPrefs.GetInt("spoilerIsEquiped", 0) == 1) // if true
         {
             spoiler.SetActive(true);
+            PlayerPrefs.SetInt("spoilerIsEquiped", 1);
         }
         else
         {
             spoiler.SetActive(false);
+            PlayerPrefs.SetInt("spoilerIsEquiped", 0);
         }
     }
 }

@@ -29,7 +29,6 @@ public class GetCostomization : MonoBehaviour
         //frame
         if(PlayerPrefs.GetInt("metalFrameIsEquiped", 0) == 1) // if true
         {
-            
             metalFrame.SetActive(true);
             metalFrameLights.SetActive(true);
         }
