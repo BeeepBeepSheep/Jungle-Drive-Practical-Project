@@ -11,10 +11,6 @@ public class ShopButton : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
     public void HoverShowUnlock()
     {
         lockedIcon.SetActive(false);

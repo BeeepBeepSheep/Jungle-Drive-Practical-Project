@@ -17,11 +17,6 @@ public class GetCostomization : MonoBehaviour
         GetInfo();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void GetInfo()
     {
         //all player pref ints r bool

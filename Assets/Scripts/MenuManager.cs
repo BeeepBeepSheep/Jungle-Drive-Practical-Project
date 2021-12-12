@@ -25,9 +25,9 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.DeleteAll();
             UpdateText();
         }
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKey("z"))
         {
-            PlayerPrefs.SetInt("TotalCoins", 1000);
+            PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins", 0) + 1000);
             UpdateText();
         }
     }

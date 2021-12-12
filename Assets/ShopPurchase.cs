@@ -33,18 +33,6 @@ public class ShopPurchase : MonoBehaviour
         exhaustPriceTag.text = exhaustCost.ToString();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown("1"))
-        {
-            PlayerPrefs.SetInt("metalFrameIsEquiped", 1);
-        }
-        if (Input.GetKeyDown("0"))
-        {
-            PlayerPrefs.SetInt("metalFrameIsEquiped", 0);
-        }
-    }
-
     public void PurchaseFrame()
     {
         if (PlayerPrefs.GetInt("TotalCoins") >= frameCost)
@@ -65,9 +53,9 @@ public class ShopPurchase : MonoBehaviour
     }
     public void PurchaseSpoiler()
     {
-        if (PlayerPrefs.GetInt("TotalCoins") >= frameCost)
+        if (PlayerPrefs.GetInt("TotalCoins") >= spoilerCost)
         {
-            currantBank -= frameCost;
+            currantBank -= spoilerCost;
             PlayerPrefs.SetInt("TotalCoins", currantBank);
             PlayerPrefs.SetInt("spoilerIsOwned", 1);
 
@@ -83,9 +71,9 @@ public class ShopPurchase : MonoBehaviour
     }
     public void PurchaseBigExhaust()
     {
-        if (PlayerPrefs.GetInt("TotalCoins") >= frameCost)
+        if (PlayerPrefs.GetInt("TotalCoins") >= exhaustCost)
         {
-            currantBank -= frameCost;
+            currantBank -= exhaustCost;
             PlayerPrefs.SetInt("TotalCoins", currantBank);
             PlayerPrefs.SetInt("bigExhasutIsOwned", 1);
 
