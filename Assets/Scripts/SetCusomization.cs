@@ -21,7 +21,19 @@ public class SetCusomization : MonoBehaviour
     {
         
     }
-
+    public void ToggleFrame()
+    {
+        if(metalFrame.activeInHierarchy)
+        {
+            metalFrame.SetActive(false);
+            metalFrameLights.SetActive(false);
+        }
+        else
+        {
+            metalFrame.SetActive(true);
+            metalFrameLights.SetActive(true);
+        }
+    }
     public void GetInfo()
     {
         //all player pref ints r bool
@@ -29,7 +41,6 @@ public class SetCusomization : MonoBehaviour
         //frame
         if (PlayerPrefs.GetInt("metalFrameIsEquiped", 0) == 1) // if true
         {
-
             metalFrame.SetActive(true);
             metalFrameLights.SetActive(true);
         }
