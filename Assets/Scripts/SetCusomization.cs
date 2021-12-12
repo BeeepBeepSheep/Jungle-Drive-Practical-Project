@@ -9,7 +9,8 @@ public class SetCusomization : MonoBehaviour
 
     public GameObject bigExhaust;
     public GameObject smallExhaust;
-
+    public GameObject bigExhaustIcon;
+    public GameObject smallExhaustIcon;
     public GameObject spoiler;
 
     void Start()
@@ -34,6 +35,37 @@ public class SetCusomization : MonoBehaviour
             metalFrameLights.SetActive(true);
         }
     }
+    public void ToggleSpoiler()
+    {
+        if (spoiler.activeInHierarchy)
+        {
+            spoiler.SetActive(false);
+        }
+        else
+        {
+            spoiler.SetActive(true);
+        }
+    }
+    public void ToggleExhaust()
+    {
+        if (bigExhaust.activeInHierarchy)
+        {
+            bigExhaust.SetActive(false);
+            smallExhaust.SetActive(true);
+
+            bigExhaustIcon.SetActive(false);
+            smallExhaustIcon.SetActive(true);
+        }
+        else
+        {
+            bigExhaust.SetActive(true);
+            smallExhaust.SetActive(false);
+
+            bigExhaustIcon.SetActive(true);
+            smallExhaustIcon.SetActive(false);
+        }
+    }
+
     public void GetInfo()
     {
         //all player pref ints r bool
