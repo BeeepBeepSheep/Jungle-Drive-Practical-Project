@@ -12,12 +12,26 @@ public class GetCostomization : MonoBehaviour
 
     public GameObject spoiler;
 
+    public Material primaryMat;
+    public Material secondaryMat;
+
+    //primary colour
+    public MeshRenderer bodyMesh;
+
+    //secondary colour
+    public MeshRenderer spolerMesh;
+    public MeshRenderer wheelArch1;
+    public MeshRenderer wheelArch2;
+    public MeshRenderer wheelArch3;
+    public MeshRenderer wheelArch4;
+
     void Start()
     {
-        GetInfo();
+        GetSetInfo();
+        GetSetPaint();
     }
 
-    public void GetInfo()
+    public void GetSetInfo()
     {
         //all player pref ints r bool
 
@@ -53,5 +67,20 @@ public class GetCostomization : MonoBehaviour
         {
             spoiler.SetActive(false);
         }
+    }
+    public void GetSetPaint()
+    {
+        //get
+        //primaryMat = 
+        //secondaryMat = 
+
+        //set
+        bodyMesh.material = primaryMat;
+
+        spolerMesh.material = secondaryMat;
+        wheelArch1.material = secondaryMat;
+        wheelArch2.material = secondaryMat;
+        wheelArch3.material = secondaryMat;
+        wheelArch4.material = secondaryMat;
     }
 }
