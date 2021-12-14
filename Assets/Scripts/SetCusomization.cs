@@ -34,8 +34,6 @@ public class SetCusomization : MonoBehaviour
 
             PlayerPrefs.SetInt("metalFrameIsEquiped", 1);
         }
-        Debug.Log("frame is: " + PlayerPrefs.GetInt("metalFrameIsEquiped", 0));
-
     }
 
     public void ToggleSpoiler()

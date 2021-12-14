@@ -24,8 +24,9 @@ public class MenuManager : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
             UpdateText();
+            SceneManager.LoadScene("MainMenu");
         }
-        if (Input.GetKey("z"))
+        if (Input.GetKeyDown("z"))
         {
             PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins", 0) + 1000);
             UpdateText();

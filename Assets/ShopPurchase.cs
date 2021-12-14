@@ -35,6 +35,8 @@ public class ShopPurchase : MonoBehaviour
 
     public void PurchaseFrame()
     {
+        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
+
         if (PlayerPrefs.GetInt("TotalCoins") >= frameCost)
         {
             currantBank -= frameCost;
@@ -53,6 +55,8 @@ public class ShopPurchase : MonoBehaviour
     }
     public void PurchaseSpoiler()
     {
+        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
+
         if (PlayerPrefs.GetInt("TotalCoins") >= spoilerCost)
         {
             currantBank -= spoilerCost;
@@ -71,6 +75,8 @@ public class ShopPurchase : MonoBehaviour
     }
     public void PurchaseBigExhaust()
     {
+        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
+
         if (PlayerPrefs.GetInt("TotalCoins") >= exhaustCost)
         {
             currantBank -= exhaustCost;
