@@ -8,7 +8,6 @@ public class Score : MonoBehaviour
 
     public Text currantScoretext;
     public Text highScoretext;
-    public Text highScoretext2;
 
     public int currantCoins = 0;
     public int currantBank;
@@ -16,6 +15,7 @@ public class Score : MonoBehaviour
     public float currantTime;
     public int currantScore;
     public float highScore;
+    public float lifeBest = 0;
     public float multiplyer = 5;
     public bool allowScoring = true;
 
@@ -98,7 +98,10 @@ public class Score : MonoBehaviour
         currantScoretext.text = currantScore.ToString();
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-
+        if(currantScore >= lifeBest)
+        {
+            lifeBest = currantScore;
+        }
         if(currantScore >= highScore)
         {
             PlayerPrefs.SetInt("HighScore", currantScore);
@@ -108,7 +111,6 @@ public class Score : MonoBehaviour
                 hitNewHighscore = true;
                 notificationAnim.SetTrigger("newHighScore");
             }
-
         }
     }
     void CoinsInTruckBed()

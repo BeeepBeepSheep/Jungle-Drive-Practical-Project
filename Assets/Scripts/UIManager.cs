@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     public Text scoreEnd;
     public Text highScoreEnd;
     public Text coinsCollectedEnd;
+    public Text lifeBestTextEnd;
 
     public GameObject hud;
 
@@ -110,6 +111,7 @@ public class UIManager : MonoBehaviour
 
         coinsCollectedPaused.text = scoreScript.currantCoins.ToString();
         coinsCollectedEnd.text = scoreScript.currantCoins.ToString();
+        lifeBestTextEnd.text = scoreScript.lifeBest.ToString();
     }
     void SpeedIndicators()
     {
