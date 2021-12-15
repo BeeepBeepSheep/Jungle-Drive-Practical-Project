@@ -18795,6 +18795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalCoinsText: {fileID: 20212539}
+  highScoreText: {fileID: 1070520808}
   shopMenu: {fileID: 1143853496}
   optionsMenu: {fileID: 1677039626}
 --- !u!114 &1658948674

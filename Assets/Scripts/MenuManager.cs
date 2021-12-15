@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public Text totalCoinsText;
+    public Text highScoreText;
 
     public GameObject shopMenu;
     bool shopIsOpen = false;
@@ -30,6 +31,7 @@ public class MenuManager : MonoBehaviour
     public void UpdateText()
     {
         totalCoinsText.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
+        highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
     public void Play()
     {

@@ -763,8 +763,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83.09497, y: -16.735}
-  m_SizeDelta: {x: 166.19, y: 33.47}
+  m_AnchoredPosition: {x: 72, y: -24.99993}
+  m_SizeDelta: {x: 144, y: 33.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157785675
 MonoBehaviour:
@@ -1360,8 +1360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -83.09493, y: -61.799965}
-  m_SizeDelta: {x: 166.19, y: 33.47}
+  m_AnchoredPosition: {x: -72, y: -61.79996}
+  m_SizeDelta: {x: 144, y: 33.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380519986
 MonoBehaviour:
@@ -1433,8 +1433,15 @@ MonoBehaviour:
   currantCoinsText: {fileID: 1230128044}
   coinsCollected: {fileID: 1204526769}
   coinsBankText: {fileID: 1566767583}
+  currantScoretext: {fileID: 1600908366}
+  highScoretext: {fileID: 606439020}
+  highScoretext2: {fileID: 0}
   currantCoins: 0
   currantBank: 0
+  currantTime: 0
+  currantScore: 0
+  highScore: 0
+  multiplyer: 5
   coinsForClump1: 25
   coinsForClump2: 75
   coinsForClump3: 150

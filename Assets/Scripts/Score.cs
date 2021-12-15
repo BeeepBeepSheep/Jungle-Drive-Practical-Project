@@ -8,8 +8,18 @@ public class Score : MonoBehaviour
     public Text coinsCollected;
     public Text coinsBankText;
 
+    public Text currantScoretext;
+    public Text highScoretext;
+    public Text highScoretext2;
+
     public int currantCoins = 0;
     public int currantBank;
+
+    public float currantTime;
+    public int currantScore;
+    public float highScore;
+    public float multiplyer = 5;
+    bool stopWatchActive = true;
 
     public int coinsForClump1 = 25;
     public int coinsForClump2 = 75;
@@ -31,26 +41,21 @@ public class Score : MonoBehaviour
         currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
         coinsBankText.text = currantBank.ToString();
 
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        highScoretext.text = highScore.ToString();
+
         coinsClump1.SetActive(false);
         coinsClump2.SetActive(false);
         coinsClump3.SetActive(false);
         coinsClump4.SetActive(false);
         coinsClump5.SetActive(false);
         coinsChest.SetActive(false);
+
+        currantTime = 0;
     }
     void Update()
     {
-        //StopWatch();
-
-        if (Input.GetKeyDown("x"))
-        {
-            CurrantCoinIncrease(1);
-        }
-
-        if (Input.GetKeyDown("z"))
-        {
-            ResetStats();
-        }
+        CurrentScore();
     }
 
     public void CurrantCoinIncrease(int coinsIntake)
@@ -67,6 +72,25 @@ public class Score : MonoBehaviour
         CoinsInTruckBed();
     }
 
+    void CurrentScore()
+    {
+        if (stopWatchActive)
+        {
+            currantTime = currantTime + Time.deltaTime;
+        }
+        currantScore = Mathf.RoundToInt(currantTime * multiplyer);
+        TimeSpan time = TimeSpan.FromSeconds(currantTime);
+        currantScoretext.text = currantScore.ToString();
+
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        if(currantScore >= highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", currantScore);
+            highScoretext.text = highScore.ToString();
+            //highScoretext2.text = highScore.ToString();
+        }
+    }
     void CoinsInTruckBed()
     {
         if (currantCoins >= coinsForClump1)
@@ -110,15 +134,5 @@ public class Score : MonoBehaviour
         //add currant to main bank
         PlayerPrefs.SetInt("TotalCoins", currantBank);
         coinsBankText.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
-    }
-    public void ResetStats()
-    {
-        PlayerPrefs.DeleteKey("TotalCoins");
-        currantCoins = 0;
-        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
-
-        currantCoinsText.text = currantCoins.ToString();
-        coinsCollected.text = currantCoins.ToString();
-        //PlayerPrefs.DeleteAll();
     }
 }
