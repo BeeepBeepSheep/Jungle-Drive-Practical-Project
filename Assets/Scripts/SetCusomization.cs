@@ -13,6 +13,9 @@ public class SetCusomization : MonoBehaviour
     public GameObject smallExhaustIcon;
     public GameObject spoiler;
 
+    public Material redDefault;
+    public Material red2Default;
+
     void Start()
     {
         GetInfo();
@@ -107,6 +110,7 @@ public class SetCusomization : MonoBehaviour
             PlayerPrefs.SetInt("bigExhasutIsEquiped", 0);
         }
 
+        //spoiler
         if (PlayerPrefs.GetInt("spoilerIsEquiped", 0) == 1) // if true
         {
             spoiler.SetActive(true);

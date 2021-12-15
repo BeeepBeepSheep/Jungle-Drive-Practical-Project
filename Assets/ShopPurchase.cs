@@ -24,6 +24,10 @@ public class ShopPurchase : MonoBehaviour
     public Text exhaustPriceTag;
     public int exhaustCost;
 
+    public GameObject extraColoursLocked;
+    public GameObject extraColoursUnlocked;
+    public Text extraColoursPriceTag;
+    public int extraColoursCost;
     void Start()
     {
         GetInfo();
@@ -31,6 +35,65 @@ public class ShopPurchase : MonoBehaviour
         framePriceTag.text = frameCost.ToString();
         spoilerPriceTag.text = spoilerCost.ToString();
         exhaustPriceTag.text = exhaustCost.ToString();
+        extraColoursPriceTag.text = extraColoursCost.ToString();
+    }
+
+    public void GetInfo()
+    {
+        //bank
+        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
+
+        //all player pref ints r bool
+
+        //physical
+        //frame
+        if (PlayerPrefs.GetInt("metalFrameIsOwned", 0) == 1) // if true
+        {
+            lockedFrameIcon.SetActive(false);
+            frameToggleButton.SetActive(true);
+        }
+        else
+        {
+            lockedFrameIcon.SetActive(true);
+            frameToggleButton.SetActive(false);
+        }
+
+        //spoiler
+        if (PlayerPrefs.GetInt("spoilerIsOwned", 0) == 1) // if true
+        {
+            lockedSpoilerIcon.SetActive(false);
+            spoilerToggleButton.SetActive(true);
+        }
+        else
+        {
+            lockedSpoilerIcon.SetActive(true);
+            spoilerToggleButton.SetActive(false);
+        }
+
+        //exhaust
+        if (PlayerPrefs.GetInt("bigExhasutIsOwned", 0) == 1) // if true
+        {
+            lockedExhaustIcon.SetActive(false);
+            exhaustToggleButton.SetActive(true);
+        }
+        else
+        {
+            lockedExhaustIcon.SetActive(true);
+            exhaustToggleButton.SetActive(false);
+        }
+
+        //colours
+        if (PlayerPrefs.GetInt("extraColoursOwned", 0) == 1) // if true
+        {
+            extraColoursLocked.SetActive(false);
+            extraColoursUnlocked.SetActive(true);
+        }
+        else
+        {
+            extraColoursLocked.SetActive(true);
+            extraColoursUnlocked.SetActive(false);
+        }
+
     }
 
     public void PurchaseFrame()
@@ -93,47 +156,25 @@ public class ShopPurchase : MonoBehaviour
         }
         menuScript.UpdateText();
     }
-    public void GetInfo()
+    public void PurchaseExtraColours()
     {
-        //bank
         currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
 
-        //all player pref ints r bool
-
-        //frame
-        if (PlayerPrefs.GetInt("metalFrameIsOwned", 0) == 1) // if true
+        if (PlayerPrefs.GetInt("TotalCoins") >= extraColoursCost)
         {
-            lockedFrameIcon.SetActive(false);
-            frameToggleButton.SetActive(true);
+            currantBank -= extraColoursCost;
+            PlayerPrefs.SetInt("TotalCoins", currantBank);
+            PlayerPrefs.SetInt("extraColoursOwned", 1);
+
+            extraColoursLocked.SetActive(false);
+            extraColoursUnlocked.SetActive(true);
+
+            //physicalCustomizationScript.ToggleExhaust();
         }
         else
         {
-            lockedFrameIcon.SetActive(true);
-            frameToggleButton.SetActive(false);
+            Debug.Log("to expensive");
         }
-
-        //spoiler
-        if (PlayerPrefs.GetInt("spoilerIsOwned", 0) == 1) // if true
-        {
-            lockedSpoilerIcon.SetActive(false);
-            spoilerToggleButton.SetActive(true);
-        }
-        else
-        {
-            lockedSpoilerIcon.SetActive(true);
-            spoilerToggleButton.SetActive(false);
-        }
-
-        //exhaust
-        if (PlayerPrefs.GetInt("bigExhasutIsOwned", 0) == 1) // if true
-        {
-            lockedExhaustIcon.SetActive(false);
-            exhaustToggleButton.SetActive(true);
-        }
-        else
-        {
-            lockedExhaustIcon.SetActive(true);
-            exhaustToggleButton.SetActive(false);
-        }
+        menuScript.UpdateText();
     }
 }//

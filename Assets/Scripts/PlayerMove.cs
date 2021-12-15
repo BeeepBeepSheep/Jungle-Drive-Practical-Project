@@ -44,7 +44,6 @@ public class PlayerMove : MonoBehaviour
     public Transform tileHolder;
 
     public Score scoreScript;
-    public EngineOverheat engineHeatScript;
 
     void Start()
     {
@@ -218,7 +217,6 @@ public class PlayerMove : MonoBehaviour
         exitMudRaisedFast = false;
 
         //scoreScript.StartStopWatch();
-        engineHeatScript.carIsFast = true;
     }
     public IEnumerator AllowSpeedUp()
     {
@@ -233,8 +231,6 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
-        //scoreScript.StopStopWatch();
-        engineHeatScript.carIsFast = false;
     }
     public void SetSpeedMud()
     {
@@ -243,8 +239,6 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
-        //scoreScript.StopStopWatch();
-        engineHeatScript.carIsFast = false;
     }
 
     public IEnumerator SlowdownDelay()

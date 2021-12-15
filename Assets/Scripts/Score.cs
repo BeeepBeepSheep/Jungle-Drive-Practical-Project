@@ -11,11 +11,6 @@ public class Score : MonoBehaviour
     public int currantCoins = 0;
     public int currantBank;
 
-    //float currantTime;
-    //bool stopWatchActive = false;
-    public Text currantTimeText;
-    public Text logestTimFast;
-
     public int coinsForClump1 = 25;
     public int coinsForClump2 = 75;
     public int coinsForClump3 = 150;
@@ -36,7 +31,6 @@ public class Score : MonoBehaviour
         currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
         coinsBankText.text = currantBank.ToString();
 
-        //currantTime = 0;
         coinsClump1.SetActive(false);
         coinsClump2.SetActive(false);
         coinsClump3.SetActive(false);
@@ -71,47 +65,7 @@ public class Score : MonoBehaviour
         currantBank += coinsIntake;
 
         CoinsInTruckBed();
-        //if (currantCoins > PlayerPrefs.GetInt("TotalCoins", 0))
-        //{
-        //PlayerPrefs.SetInt("TotalCoins", currantCoins);
-
-        //totalCoinsCore.text = currantCoins.ToString();
-        //}
     }
-
-    //void StopWatch()
-    //{
-    //    if(stopWatchActive)
-    //    {
-    //        currantTime = currantTime + Time.deltaTime;
-    //    }
-    //    TimeSpan time = TimeSpan.FromSeconds(currantTime);
-    //    currantTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString() + ":" + time.Milliseconds.ToString();
-
-    //    if (currantTime > PlayerPrefs.GetFloat("LogestTimeFast", 0))
-    //    {
-    //        PlayerPrefs.SetFloat("LogestTimeFast", currantTime);
-    //        //need to fix longest time fast scoreing 
-    //        //need to fix longest time fast scoreing 
-    //        //need to fix longest time fast scoreing 
-    //        //need to fix longest time fast scoreing 
-    //        //need to fix longest time fast scoreing 
-    //        //need to fix longest time fast scoreing 
-    //        //need to fix longest time fast scoreing 
-    //        logestTimFast.text = currantTimeText.text;
-    //    }
-    //}
-
-    //public void StartStopWatch()
-    //{
-    //    stopWatchActive = true;
-    //    currantTime = 0;
-    //}
-    //public void StopStopWatch()
-    //{
-    //    stopWatchActive = false;
-    //    currantTime = 0;
-    //}
 
     void CoinsInTruckBed()
     {
