@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public int speedState;
+    public int speedState; // 1 is fast 0 is medium -1 is mud
     public bool suspensionIsRaised;
     public bool isInMud;
     public bool exitMudRaisedFast;
@@ -44,6 +44,8 @@ public class PlayerMove : MonoBehaviour
     public Transform tileHolder;
 
     public Score scoreScript;
+    public Animator notificationAnim;
+
 
     void Start()
     {
@@ -68,6 +70,16 @@ public class PlayerMove : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
         carAnim.SetBool("suspensionIsRaised", suspensionIsRaised);
+
+        //scoring at top speed
+        if (speedState == 1)
+        {
+            scoreScript.allowScoring = true;
+        }
+        else
+        {
+            scoreScript.allowScoring = false;
+        }
 
         //fix horizontalm move
         if (turnStateInt == 1)
@@ -189,6 +201,8 @@ public class PlayerMove : MonoBehaviour
                 }
             }
         }
+
+      
     }
     void SuspensionLogic()
     {
@@ -231,6 +245,7 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
+        notificationAnim.SetTrigger("ScoreReset");
     }
     public void SetSpeedMud()
     {
@@ -239,6 +254,7 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
+        notificationAnim.SetTrigger("ScoreReset");
     }
 
     public IEnumerator SlowdownDelay()

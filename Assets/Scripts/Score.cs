@@ -17,9 +17,11 @@ public class Score : MonoBehaviour
     public int currantScore;
     public float highScore;
     public float multiplyer = 5;
-    bool stopWatchActive = true;
+    public bool allowScoring = true;
 
     public bool hitNewHighscore = false;
+
+    public Animator notificationAnim;
 
     public int coinsForClump1 = 25;
     public int coinsForClump2 = 75;
@@ -68,14 +70,28 @@ public class Score : MonoBehaviour
         //bank
         currantBank += coinsIntake;
 
+        if(coinsIntake == 1)
+        {
+            notificationAnim.SetTrigger("oneCoin");
+        }
+        else
+        {
+            notificationAnim.SetTrigger("25Coin");
+        }
+
         CoinsInTruckBed();
     }
 
     void CurrentScore()
     {
-        if (stopWatchActive)
+        if (allowScoring)
         {
             currantTime = currantTime + Time.deltaTime;
+        }
+        else
+        {
+            currantTime = 0;
+            currantScore = 0;
         }
         currantScore = Mathf.RoundToInt(currantTime * multiplyer);
         TimeSpan time = TimeSpan.FromSeconds(currantTime);
@@ -88,7 +104,9 @@ public class Score : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", currantScore);
             highScoretext.text = highScore.ToString();
             hitNewHighscore = true;
-            //highScoretext2.text = highScore.ToString();
+
+            notificationAnim.SetTrigger("newHIghScore");
+
         }
     }
     void CoinsInTruckBed()
@@ -132,5 +150,6 @@ public class Score : MonoBehaviour
     public void CoinsAddToTotal()
     {
         PlayerPrefs.SetInt("TotalCoins", currantBank);
+        allowScoring = false;
     }
 }
