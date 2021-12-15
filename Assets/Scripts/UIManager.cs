@@ -17,8 +17,18 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject failMenuUI;
 
+    public Text scorePaused;
+    public Text highScorePaused;
+    public Text coinsCollectedPaused;
+    public Text scoreEnd;
+    public Text highScoreEnd;
+    public Text coinsCollectedEnd;
+
+    public GameObject hud;
+
     public Score scoreScript;
 
+    public bool canPauseResume = true;
 
     void Start()
     {
@@ -29,7 +39,7 @@ public class UIManager : MonoBehaviour
     {
         SpeedIndicators();
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && canPauseResume)
         {
             if (gameIsPaused)
             {
@@ -49,7 +59,10 @@ public class UIManager : MonoBehaviour
 
         gameIsPaused = false;
         pauseMenuUI.SetActive(false);
+        hud.SetActive(true);
         Time.timeScale = 1f;
+
+        UpdateAllText();
     }
 
     public void PauseGame()
@@ -59,14 +72,20 @@ public class UIManager : MonoBehaviour
 
         gameIsPaused = true;
         pauseMenuUI.SetActive(true);
+        hud.SetActive(false);
         Time.timeScale = 0f;
+
+        UpdateAllText();
     }
 
     public void EndGame()
     {
         failMenuUI.SetActive(true);
         scoreScript.CoinsAddToTotal();
+        hud.SetActive(false);
         Time.timeScale = 0f;
+
+        UpdateAllText();
     }
 
     public void RestartGame()
@@ -80,6 +99,17 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+    public void UpdateAllText()
+    {
+        scorePaused.text = scoreScript.currantScore.ToString();
+        scoreEnd.text = scoreScript.currantScore.ToString();
+
+        highScorePaused.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        highScoreEnd.text = highScorePaused.text;
+
+        coinsCollectedPaused.text = scoreScript.currantCoins.ToString();
+        coinsCollectedEnd.text = scoreScript.currantCoins.ToString();
     }
     void SpeedIndicators()
     {

@@ -5,8 +5,6 @@ using System;
 public class Score : MonoBehaviour
 {
     public Text currantCoinsText;
-    public Text coinsCollected;
-    public Text coinsBankText;
 
     public Text currantScoretext;
     public Text highScoretext;
@@ -20,6 +18,8 @@ public class Score : MonoBehaviour
     public float highScore;
     public float multiplyer = 5;
     bool stopWatchActive = true;
+
+    public bool hitNewHighscore = false;
 
     public int coinsForClump1 = 25;
     public int coinsForClump2 = 75;
@@ -38,8 +38,6 @@ public class Score : MonoBehaviour
     void Start()
     {
         //StartStopWatch();
-        currantBank = PlayerPrefs.GetInt("TotalCoins", 0);
-        coinsBankText.text = currantBank.ToString();
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         highScoretext.text = highScore.ToString();
@@ -52,6 +50,8 @@ public class Score : MonoBehaviour
         coinsChest.SetActive(false);
 
         currantTime = 0;
+
+        hitNewHighscore = false;
     }
     void Update()
     {
@@ -64,7 +64,6 @@ public class Score : MonoBehaviour
         currantCoins += coinsIntake;
 
         currantCoinsText.text = currantCoins.ToString();
-        coinsCollected.text = currantCoins.ToString();
 
         //bank
         currantBank += coinsIntake;
@@ -88,6 +87,7 @@ public class Score : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", currantScore);
             highScoretext.text = highScore.ToString();
+            hitNewHighscore = true;
             //highScoretext2.text = highScore.ToString();
         }
     }
@@ -131,8 +131,6 @@ public class Score : MonoBehaviour
 
     public void CoinsAddToTotal()
     {
-        //add currant to main bank
         PlayerPrefs.SetInt("TotalCoins", currantBank);
-        coinsBankText.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
     }
 }

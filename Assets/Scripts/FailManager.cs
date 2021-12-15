@@ -10,6 +10,7 @@ public class FailManager : MonoBehaviour
     public void Fail()
     {
         uiManagerScript.EndGame();
+        uiManagerScript.canPauseResume = false;
         scoreScipt.CoinsAddToTotal();
         Time.timeScale = 0;
     }

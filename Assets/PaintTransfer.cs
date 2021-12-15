@@ -22,7 +22,7 @@ public class PaintTransfer : MonoBehaviour
             target.GetComponent<GetCostomization>().primaryMat = selectedPrimary;
             target.GetComponent<GetCostomization>().secondaryMat = selectedSecondary;
             target.GetComponent<GetCostomization>().GetSetPaint();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
