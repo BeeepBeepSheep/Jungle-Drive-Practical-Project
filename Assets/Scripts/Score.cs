@@ -103,9 +103,11 @@ public class Score : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", currantScore);
             highScoretext.text = highScore.ToString();
-            hitNewHighscore = true;
-
-            notificationAnim.SetTrigger("newHIghScore");
+            if (!hitNewHighscore)
+            {
+                hitNewHighscore = true;
+                notificationAnim.SetTrigger("newHighScore");
+            }
 
         }
     }
