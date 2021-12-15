@@ -443,8 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e73b4f7bd50024458e84dd8fb017257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPrimary: {fileID: 0}
-  selectedSecondary: {fileID: 0}
+  selectedPrimary: {fileID: 2100000, guid: ca5db854910728b44acf0231b522cf38, type: 2}
+  selectedSecondary: {fileID: 2100000, guid: e0de1f1e40090e640b819eb9d954eafa, type: 2}
   target: {fileID: 0}
 --- !u!4 &27671637 stripped
 Transform:
@@ -3171,7 +3171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -23, y: 0}
+  m_AnchoredPosition: {x: -23, y: -20}
   m_SizeDelta: {x: 121.2, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245996767
@@ -12220,13 +12220,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 245996765}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 245996769}
+        m_TargetAssemblyTypeName: ColourAplicator, Assembly-CSharp
+        m_MethodName: SilverSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14616,7 +14616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308266903}
   m_LocalRotation: {x: -0, y: -0.76877505, z: -0, w: -0.6395194}
-  m_LocalPosition: {x: 29.47, y: 1.792, z: 54.78}
+  m_LocalPosition: {x: 27.32, y: 1.792, z: 49.33}
   m_LocalScale: {x: 0.5929234, y: 0.5929234, z: 0.5929234}
   m_Children:
   - {fileID: 1429870354}
@@ -17539,13 +17539,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 245996765}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 245996769}
+        m_TargetAssemblyTypeName: ColourAplicator, Assembly-CSharp
+        m_MethodName: PinkSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -18590,13 +18590,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 245996765}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 245996769}
+        m_TargetAssemblyTypeName: ColourAplicator, Assembly-CSharp
+        m_MethodName: GoldSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

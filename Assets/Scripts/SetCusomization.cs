@@ -25,6 +25,23 @@ public class SetCusomization : MonoBehaviour
 
     public PaintTransfer paintTransferer;
 
+    //selected colour save
+    string defaultRed = "";
+    string defaultRed2 = "";
+    string green = "";
+    string green2 = "";
+    string blue = "";
+    string blue2 = "";
+    string purple = "";
+    string orrange = "";
+
+    string black = "";
+    string white = "";
+    string pink = "";
+    string silver = "";
+
+    string gold = "";
+
     //this is the main menu customization one
 
     void Start()
@@ -132,9 +149,6 @@ public class SetCusomization : MonoBehaviour
             spoiler.SetActive(false);
             PlayerPrefs.SetInt("spoilerIsEquiped", 0);
         }
-
-        //colour
-
     }
     public void SetPrimary(Material selectedPrimary)
     {
