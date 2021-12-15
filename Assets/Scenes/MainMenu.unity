@@ -13531,7 +13531,7 @@ MonoBehaviour:
   extraColoursPriceTag: {fileID: 1731003076}
   extraColoursCost: 1000
   goldPriceTag: {fileID: 1457410389}
-  scoreForGold: 100
+  scoreForGold: 2500
   goldLocked: {fileID: 118187152}
   goldUnlocked: {fileID: 1656881294}
 --- !u!1 &1160660483
