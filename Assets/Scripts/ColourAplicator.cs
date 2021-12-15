@@ -5,8 +5,6 @@ using UnityEngine;
 public class ColourAplicator : MonoBehaviour
 {
     public Material selectedMaterial;
-    public Material primary;
-    public Material secondary;
 
     public Material defaultRed;
     public Material defaultRed2;
@@ -24,6 +22,8 @@ public class ColourAplicator : MonoBehaviour
 
     public Material gold;
 
+    public SetCusomization menuSetCustomization;
+
     void Start()
     {
         
@@ -35,13 +35,13 @@ public class ColourAplicator : MonoBehaviour
     }
     public void SetPrimary()
     {
-        primary = selectedMaterial;
         gameObject.SetActive(false);
+        menuSetCustomization.SetPrimary(selectedMaterial);
     }
     public void SetSecondary()
     {
-        secondary = selectedMaterial;
         gameObject.SetActive(false);
+        menuSetCustomization.SetSecondary(selectedMaterial);
     }
 
     public void RedSelect()

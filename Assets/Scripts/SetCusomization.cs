@@ -13,8 +13,17 @@ public class SetCusomization : MonoBehaviour
     public GameObject smallExhaustIcon;
     public GameObject spoiler;
 
-    public Material redDefault;
-    public Material red2Default;
+    //primary colour
+    public MeshRenderer bodyMesh;
+
+    //secondary colour
+    public MeshRenderer spolerMesh;
+    public MeshRenderer wheelArch1;
+    public MeshRenderer wheelArch2;
+    public MeshRenderer wheelArch3;
+    public MeshRenderer wheelArch4;
+
+    //this is the main menu customization one
 
     void Start()
     {
@@ -121,5 +130,17 @@ public class SetCusomization : MonoBehaviour
             spoiler.SetActive(false);
             PlayerPrefs.SetInt("spoilerIsEquiped", 0);
         }
+    }
+    public void SetPrimary(Material selectedPrimary)
+    {
+        bodyMesh.material = selectedPrimary;
+    }
+    public void SetSecondary(Material selectedSecondary)
+    {
+        spolerMesh.material = selectedSecondary;
+        wheelArch1.material = selectedSecondary;
+        wheelArch2.material = selectedSecondary;
+        wheelArch3.material = selectedSecondary;
+        wheelArch4.material = selectedSecondary;
     }
 }

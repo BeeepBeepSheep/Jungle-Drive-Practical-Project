@@ -25,6 +25,7 @@ public class GetCostomization : MonoBehaviour
     public MeshRenderer wheelArch3;
     public MeshRenderer wheelArch4;
 
+    // this is the game one
     void Start()
     {
         GetSetInfo();
