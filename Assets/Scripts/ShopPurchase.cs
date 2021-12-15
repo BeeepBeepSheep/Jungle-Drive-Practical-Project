@@ -28,6 +28,12 @@ public class ShopPurchase : MonoBehaviour
     public GameObject extraColoursUnlocked;
     public Text extraColoursPriceTag;
     public int extraColoursCost;
+
+    public Text goldPriceTag;
+    public int scoreForGold;
+    public GameObject goldLocked;
+    public GameObject goldUnlocked;
+
     void Start()
     {
         GetInfo();
@@ -36,6 +42,14 @@ public class ShopPurchase : MonoBehaviour
         spoilerPriceTag.text = spoilerCost.ToString();
         exhaustPriceTag.text = exhaustCost.ToString();
         extraColoursPriceTag.text = extraColoursCost.ToString();
+        goldPriceTag.text = scoreForGold.ToString();
+
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (highScore >= scoreForGold)
+        {
+            goldLocked.SetActive(false);
+            goldUnlocked.SetActive(true);
+        }
     }
 
     public void GetInfo()
