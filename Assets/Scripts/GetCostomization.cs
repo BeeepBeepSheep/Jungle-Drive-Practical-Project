@@ -71,9 +71,6 @@ public class GetCostomization : MonoBehaviour
     }
     public void GetSetPaint()
     {
-        //get
-        //primaryMat = 
-        //secondaryMat = 
 
         //set
         bodyMesh.material = primaryMat;

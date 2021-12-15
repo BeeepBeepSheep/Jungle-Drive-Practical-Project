@@ -409,9 +409,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25589314}
+  - component: {fileID: 25589315}
   m_Layer: 0
   m_Name: Paint Transfer
-  m_TagString: Untagged
+  m_TagString: PaintTransferer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,6 +431,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25589315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25589313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e73b4f7bd50024458e84dd8fb017257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedPrimary: {fileID: 0}
+  selectedSecondary: {fileID: 0}
+  target: {fileID: 0}
 --- !u!4 &27671637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8718809221898024172, guid: 54975beeec943834485e3a73f994a313, type: 3}
@@ -18806,6 +18822,7 @@ MonoBehaviour:
   wheelArch2: {fileID: 1641754488}
   wheelArch3: {fileID: 1822120726}
   wheelArch4: {fileID: 1039996221}
+  paintTransferer: {fileID: 25589315}
 --- !u!4 &1660850279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8718809221898024172, guid: 54975beeec943834485e3a73f994a313, type: 3}

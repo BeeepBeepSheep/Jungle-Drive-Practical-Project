@@ -23,6 +23,8 @@ public class SetCusomization : MonoBehaviour
     public MeshRenderer wheelArch3;
     public MeshRenderer wheelArch4;
 
+    public PaintTransfer paintTransferer;
+
     //this is the main menu customization one
 
     void Start()
@@ -130,10 +132,15 @@ public class SetCusomization : MonoBehaviour
             spoiler.SetActive(false);
             PlayerPrefs.SetInt("spoilerIsEquiped", 0);
         }
+
+        //colour
+
     }
     public void SetPrimary(Material selectedPrimary)
     {
         bodyMesh.material = selectedPrimary;
+
+        paintTransferer.selectedPrimary = selectedPrimary;
     }
     public void SetSecondary(Material selectedSecondary)
     {
@@ -142,5 +149,7 @@ public class SetCusomization : MonoBehaviour
         wheelArch2.material = selectedSecondary;
         wheelArch3.material = selectedSecondary;
         wheelArch4.material = selectedSecondary;
+
+        paintTransferer.selectedSecondary = selectedSecondary;
     }
 }
