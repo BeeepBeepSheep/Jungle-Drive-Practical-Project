@@ -21,7 +21,7 @@ public class GroundTile : MonoBehaviour
 
     public Transform nextTileSpawnPoint;
 
-    public int obsticlesToSpawnAmmount;
+    public float obsticlesToSpawnAmmount;
     public int minObsticles = 2;
     public int maxObsticles = 5;
 
@@ -42,6 +42,7 @@ public class GroundTile : MonoBehaviour
         //player = GameObject.FindGameObjectWithTag("Player");
 
         obsticlesToSpawnAmmount = Random.Range(minObsticles, maxObsticles);
+        obsticlesToSpawnAmmount= Mathf.RoundToInt(obsticlesToSpawnAmmount);
 
         SpawnObsticles(obsticlesToSpawnAmmount);
     }
@@ -56,26 +57,17 @@ public class GroundTile : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    void SpawnObsticles(int ammountToSpawn)
+    void SpawnObsticles(float ammountToSpawn)
     {
-        for (int i = minObsticles; i < ammountToSpawn; i++)
+        for (int i = 0; i < ammountToSpawn; i++)
         {
             //select obsticle
             obsticleIndex = Random.Range(0, obsticles.Length);
             obsticleToSpawn = obsticles[obsticleIndex];
 
-            ////select spawn point and remove from array
-            //int seletectedSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-            //Vector3 selectedSpawnPoint = spawnPoints[seletectedSpawnPointIndex].position;
-
             //spawn
             GameObject myObsticle = Instantiate(obsticleToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, obsticleToSpawn.transform.rotation);
             myObsticle.transform.parent = transform;
-
-            //remove
-            //remove
-            //remove
-            //remove
 
             // random y rotation
             int randdonYRot = Random.Range(0, 360);

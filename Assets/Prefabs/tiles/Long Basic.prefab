@@ -3936,8 +3936,9 @@ MonoBehaviour:
   player: {fileID: 0}
   nextTileSpawnPoint: {fileID: 4106583270269031377}
   obsticlesToSpawnAmmount: 50
-  minObsticles: 30
-  maxObsticles: 54
+  minObsticles: 40
+  maxObsticles: 64
+  amountSpawned: 0
   obsticles:
   - {fileID: 8718809221898024173, guid: 9eab0bb5156dff842bc9cc5ad74f71b8, type: 3}
   - {fileID: 8718809221898024173, guid: 17445ffb26873b943b5ca92aac5bdf3d, type: 3}
