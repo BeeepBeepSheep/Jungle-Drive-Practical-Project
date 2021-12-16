@@ -19,15 +19,6 @@ public class MenuManager : MonoBehaviour
         UpdateText();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown("z"))
-        {
-            PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins", 0) + 1000);
-            UpdateText();
-        }
-    }
-
     public void UpdateText()
     {
         totalCoinsText.text = PlayerPrefs.GetInt("TotalCoins", 0).ToString();
