@@ -13,6 +13,8 @@ public class TileCollider : MonoBehaviour
     public GameObject coin;
     public GameObject chest;
 
+    public bool isWaterfall = false;
+    public AudioSource riverSound;
     void Start()
     {
         SpawnCollectables();
@@ -64,9 +66,17 @@ public class TileCollider : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         hostScript.MyOnTriggerEnter(col);
+        if(isWaterfall)
+        {
+            riverSound.Play();
+        }
     }
     void OnTriggerExit(Collider collider)
     {
         hostScript.MyOnTriggerExit(collider);
+        if (isWaterfall)
+        {
+            riverSound.Pause();
+        }
     }
 }
