@@ -23,6 +23,8 @@ public class Score : MonoBehaviour
 
     public Animator notificationAnim;
 
+    public AudioManager audioManager;
+
     public int coinsForClump1 = 25;
     public int coinsForClump2 = 75;
     public int coinsForClump3 = 150;
@@ -70,13 +72,15 @@ public class Score : MonoBehaviour
         //bank
         currantBank += coinsIntake;
 
-        if(coinsIntake == 1)
+        if (coinsIntake == 1)
         {
             notificationAnim.SetTrigger("oneCoin");
+            audioManager.coinSound.Play();
         }
         else
         {
             notificationAnim.SetTrigger("25Coin");
+            audioManager.chestSound.Play();
         }
 
         CoinsInTruckBed();
@@ -98,11 +102,11 @@ public class Score : MonoBehaviour
         currantScoretext.text = currantScore.ToString();
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-        if(currantScore >= lifeBest)
+        if (currantScore >= lifeBest)
         {
             lifeBest = currantScore;
         }
-        if(currantScore >= highScore)
+        if (currantScore >= highScore)
         {
             PlayerPrefs.SetInt("HighScore", currantScore);
             highScoretext.text = highScore.ToString();

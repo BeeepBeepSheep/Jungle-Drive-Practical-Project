@@ -28,8 +28,9 @@ public class UIManager : MonoBehaviour
     public GameObject hud;
 
     public Score scoreScript;
-
     public bool canPauseResume = true;
+
+    public AudioManager audioManager;
 
     void Start()
     {
@@ -63,6 +64,8 @@ public class UIManager : MonoBehaviour
         hud.SetActive(true);
         Time.timeScale = 1f;
 
+        audioManager.ResumeLoops();
+
         UpdateAllText();
     }
 
@@ -76,6 +79,8 @@ public class UIManager : MonoBehaviour
         hud.SetActive(false);
         Time.timeScale = 0f;
 
+        audioManager.PauseLoops();
+
         UpdateAllText();
     }
 
@@ -85,6 +90,9 @@ public class UIManager : MonoBehaviour
         scoreScript.CoinsAddToTotal();
         hud.SetActive(false);
         Time.timeScale = 0f;
+
+        audioManager.PauseLoops();
+        audioManager.debuff.Play();
 
         UpdateAllText();
     }

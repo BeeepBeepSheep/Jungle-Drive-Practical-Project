@@ -45,6 +45,7 @@ public class PlayerMove : MonoBehaviour
 
     public Score scoreScript;
     public Animator notificationAnim;
+    public AudioManager audioManager;
 
 
     void Start()
@@ -245,6 +246,7 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
+        audioManager.debuff.Play();
         notificationAnim.SetTrigger("ScoreReset");
     }
     public void SetSpeedMud()
@@ -254,6 +256,7 @@ public class PlayerMove : MonoBehaviour
         isFastCamAnim = false;
         camAnim.SetBool("isFast", isFastCamAnim);
 
+        audioManager.debuff.Play();
         notificationAnim.SetTrigger("ScoreReset");
     }
 
