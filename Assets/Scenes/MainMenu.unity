@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.63491374, g: 0.87328607, b: 0.9869811, a: 1}
+  m_IndirectSpecularColor: {r: 0.6339637, g: 0.87290245, b: 0.9904265, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16338,7 +16338,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1308266906}
   - component: {fileID: 1308266905}
-  - component: {fileID: 1308266904}
   m_Layer: 3
   m_Name: car
   m_TagString: Untagged
@@ -16346,22 +16345,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1308266904
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308266903}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1308266905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16382,8 +16365,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308266903}
-  m_LocalRotation: {x: -0, y: -0.7690204, z: 0, w: -0.63922423}
-  m_LocalPosition: {x: 27.352957, y: 2.32, z: 49.363697}
+  m_LocalRotation: {x: -0.017063623, y: -0.7689781, z: -0.0017670456, w: -0.6390449}
+  m_LocalPosition: {x: 27.388102, y: 1.3251985, z: 49.399117}
   m_LocalScale: {x: 0.5929234, y: 0.5929234, z: 0.5929234}
   m_Children:
   - {fileID: 1429870354}
