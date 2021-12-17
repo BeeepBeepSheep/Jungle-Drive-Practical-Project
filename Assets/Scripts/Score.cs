@@ -45,6 +45,7 @@ public class Score : MonoBehaviour
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         highScoretext.text = highScore.ToString();
+        currantBank = PlayerPrefs.GetInt("TotalCoins", currantBank);
 
         coinsClump1.SetActive(false);
         coinsClump2.SetActive(false);
